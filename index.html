@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas Weather | Morocco Forecast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Atlas Weather</h1>
+      <p class="subtitle">Prévisions météorologiques en temps réel pour les villes du Maroc</p>
+    </header>
+
+    <div class="controls">
+      <div class="city-selector">
+        <select id="citySelect" class="select-city">
+          <option value="">Sélectionner une ville...</option>
+        </select>
+      </div>
+      
+      <div class="view-filters">
+        <button class="view-btn active" data-view="general">Aperçu Général</button>
+        <button class="view-btn" data-view="14days">14 Jours</button>
+        <button class="view-btn" data-view="current-month">Mois Actuel</button>
+        <button class="view-btn" data-view="next-month">Mois Suivant</button>
+        <button class="view-btn" data-view="today">Aujourd'hui</button>
+        <button class="view-btn" data-view="tomorrow">Demain</button>
+      </div>
+    </div>
+
+    <div class="weather-content">
+      <div id="weather-grid" class="weather-grid">
+        <div class="loading">
+          <div class="spinner"></div>
+          <span>Chargement des données météo...</span>
+        </div>
+      </div>
+
+      <div id="forecast-grid" class="forecast-grid hidden">
+        <!-- Forecast data will be inserted here -->
+      </div>
+    </div>
+
+    <footer>
+      <p>© <span id="year"></span> Atlas Weather | Données fournies par WeatherAPI.com</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
