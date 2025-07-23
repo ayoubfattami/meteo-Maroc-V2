@@ -3,19 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atlas Weather | Morocco Forecast</title>
+  <title>Météo Maroc | Prévisions Météorologiques</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Atlas Weather</h1>
-      <p class="subtitle">Prévisions météorologiques en temps réel pour les villes du Maroc</p>
-    </header>
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo">
+        <h1>Météo Maroc</h1>
+        <div class="logo-subtitle">Prévisions en temps réel</div>
+      </div>
+      
+      <button class="mobile-menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/" class="active">Accueil</a></li>
+          <li><a href="/about">À propos</a></li>
+          <li><a href="/privacy">Politique de confidentialité</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
     <div class="controls">
       <div class="city-selector">
         <select id="citySelect" class="select-city">
@@ -46,11 +65,45 @@
       </div>
     </div>
 
-    <footer>
-      <p>© <span id="year"></span> Atlas Weather | Données fournies par WeatherAPI.com</p>
-    </footer>
-  </div>
+    <footer class="main-footer">
+      <div class="footer-container">
+        <!-- Section 1: À propos -->
+        <div class="footer-section">
+          <h3>Météo Maroc</h3>
+          <p class="footer-description">
+            Découvrez les prévisions météorologiques précises et en temps réel 
+            pour toutes les villes du Maroc. Un service fiable pour vous aider 
+            à mieux planifier vos journées.
+          </p>
+        </div>
 
-  <script src="script.js"></script>
-</body>
+        <!-- Section 2: Villes principales -->
+        <div class="footer-section">
+          <h3>Villes Principales</h3>
+          <ul class="footer-cities">
+            <li><a href="#" class="city-link" data-city="Casablanca">Casablanca</a></li>
+            <li><a href="#" class="city-link" data-city="Rabat">Rabat</a></li>
+            <li><a href="#" class="city-link" data-city="Marrakech">Marrakech</a></li>
+            <li><a href="#" class="city-link" data-city="Agadir">Agadir</a></li>
+          </ul>
+        </div>
+
+        <!-- Section 3: Liens utiles -->
+        <div class="footer-section">
+          <h3>Liens Utiles</h3>
+          <ul class="footer-links">
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/terms">Conditions d'utilisation</a></li>
+            <li><a href="/privacy">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Météo Maroc | Tous droits réservés</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>

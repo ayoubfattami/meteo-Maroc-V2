@@ -1,3 +1,34 @@
+// Mobile Menu Functionality
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const mainNav = document.querySelector('.main-nav');
+const body = document.body;
+
+mobileMenuToggle.addEventListener('click', () => {
+  mobileMenuToggle.classList.toggle('active');
+  mainNav.classList.toggle('active');
+  body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (mainNav.classList.contains('active') &&
+      !e.target.closest('.main-nav') &&
+      !e.target.closest('.mobile-menu-toggle')) {
+    mobileMenuToggle.classList.remove('active');
+    mainNav.classList.remove('active');
+    body.style.overflow = '';
+  }
+});
+
+// Close mobile menu when window is resized above mobile breakpoint
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768 && mainNav.classList.contains('active')) {
+    mobileMenuToggle.classList.remove('active');
+    mainNav.classList.remove('active');
+    body.style.overflow = '';
+  }
+});
+
 document.getElementById('year').textContent = new Date().getFullYear();
 
 const cities = [
@@ -525,3 +556,35 @@ function createWeatherChart(data) {
   
   return ctx;
 }
+
+// Footer city links functionality
+document.querySelectorAll('.city-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const cityName = e.target.dataset.city;
+    const searchInput = document.querySelector('.city-search');
+    
+    if (searchInput) {
+      searchInput.value = cityName;
+      // Déclencher la recherche
+      const event = new Event('input', { bubbles: true });
+      searchInput.dispatchEvent(event);
+      
+      // Simuler un clic sur la suggestion
+      setTimeout(() => {
+        const suggestionsList = document.querySelector('.suggestions-list');
+        const cityItem = Array.from(suggestionsList.children)
+          .find(item => item.textContent === cityName);
+        if (cityItem) {
+          cityItem.click();
+        }
+      }, 100);
+    }
+    
+    // Scroll vers le contenu météo
+    document.querySelector('.weather-content').scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+});
