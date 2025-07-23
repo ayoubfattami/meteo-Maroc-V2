@@ -387,86 +387,211 @@ function createDetailedDayForecast(data, dayOffset) {
   const day = data.forecast.forecastday[dayOffset];
   const date = new Date(day.date);
   const isToday = dayOffset === 0;
-  
-  return `
-    <div class="weather-card" style="grid-column: 1/-1;">
-      <h2 style="margin-bottom: 1.5rem; text-align: center;">
-        ${isToday ? "Aujourd'hui" : "Demain"} - ${date.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })}
-      </h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-        <div>
-          <h3 style="margin-bottom: 1rem;">Aperçu</h3>
-          <div style="text-align: center;">
-            <img class="weather-icon" src="https:${day.day.condition.icon}" alt="${day.day.condition.text}" style="width: 100px; height: 100px;">
-            <div class="temp" style="margin: 1rem 0;">${day.day.avgtemp_c}°C</div>
-            <div class="condition">${day.day.condition.text}</div>
-          </div>
-        </div>
-        
-        <div>
-          <h3 style="margin-bottom: 1rem;">Températures</h3>
-          <div class="details">
-            <div class="detail-item">
-              <span class="detail-label">Maximum</span>
-              <span class="detail-value">${day.day.maxtemp_c}°C</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Minimum</span>
-              <span class="detail-value">${day.day.mintemp_c}°C</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Ressenti max</span>
-              <span class="detail-value">${day.day.maxtemp_c}°C</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Ressenti min</span>
-              <span class="detail-value">${day.day.mintemp_c}°C</span>
+
+  // Si c'est aujourd'hui, garder l'affichage actuel
+  if (isToday) {
+    return `
+      <div class="weather-card" style="grid-column: 1/-1;">
+        <h2 style="margin-bottom: 1.5rem; text-align: center;">
+          Aujourd'hui - ${date.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })}
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+          <div>
+            <h3 style="margin-bottom: 1rem;">Aperçu</h3>
+            <div style="text-align: center;">
+              <img class="weather-icon" src="https:${day.day.condition.icon}" alt="${day.day.condition.text}" style="width: 100px; height: 100px;">
+              <div class="temp" style="margin: 1rem 0;">${day.day.avgtemp_c}°C</div>
+              <div class="condition">${day.day.condition.text}</div>
             </div>
           </div>
-        </div>
-        
-        <div>
-          <h3 style="margin-bottom: 1rem;">Précipitations</h3>
-          <div class="details">
-            <div class="detail-item">
-              <span class="detail-label">Chance de pluie</span>
-              <span class="detail-value">${day.day.daily_chance_of_rain}%</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Précipitations</span>
-              <span class="detail-value">${day.day.totalprecip_mm} mm</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Humidité moyenne</span>
-              <span class="detail-value">${day.day.avghumidity}%</span>
+          
+          <div>
+            <h3 style="margin-bottom: 1rem;">Températures</h3>
+            <div class="details">
+              <div class="detail-item">
+                <span class="detail-label">Maximum</span>
+                <span class="detail-value">${day.day.maxtemp_c}°C</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Minimum</span>
+                <span class="detail-value">${day.day.mintemp_c}°C</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Ressenti max</span>
+                <span class="detail-value">${day.day.maxtemp_c}°C</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Ressenti min</span>
+                <span class="detail-value">${day.day.mintemp_c}°C</span>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <div>
-          <h3 style="margin-bottom: 1rem;">Conditions</h3>
-          <div class="details">
-            <div class="detail-item">
-              <span class="detail-label">Vent maximum</span>
-              <span class="detail-value">${day.day.maxwind_kph} km/h</span>
+          
+          <div>
+            <h3 style="margin-bottom: 1rem;">Précipitations</h3>
+            <div class="details">
+              <div class="detail-item">
+                <span class="detail-label">Chance de pluie</span>
+                <span class="detail-value">${day.day.daily_chance_of_rain}%</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Précipitations</span>
+                <span class="detail-value">${day.day.totalprecip_mm} mm</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Humidité moyenne</span>
+                <span class="detail-value">${day.day.avghumidity}%</span>
+              </div>
             </div>
-            <div class="detail-item">
-              <span class="detail-label">Visibilité moyenne</span>
-              <span class="detail-value">${day.day.avgvis_km} km</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Index UV</span>
-              <span class="detail-value">${day.day.uv}</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Couverture nuageuse</span>
-              <span class="detail-value">${day.day.avgvis_km}%</span>
+          </div>
+          
+          <div>
+            <h3 style="margin-bottom: 1rem;">Conditions</h3>
+            <div class="details">
+              <div class="detail-item">
+                <span class="detail-label">Vent maximum</span>
+                <span class="detail-value">${day.day.maxwind_kph} km/h</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Visibilité moyenne</span>
+                <span class="detail-value">${day.day.avgvis_km} km</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Index UV</span>
+                <span class="detail-value">${day.day.uv}</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Couverture nuageuse</span>
+                <span class="detail-value">${day.day.avgvis_km}%</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    `;
+  }
+
+  // Pour demain, afficher le tableau horaire
+  const hours = day.hour.filter((_, index) => index % 3 === 0); // Toutes les 3 heures
+
+  return `
+    <div class="weather-card tomorrow-forecast">
+      <h2 class="tomorrow-title">
+        Demain - ${date.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })}
+      </h2>
+
+      <!-- Version Desktop -->
+      <div class="hourly-table-wrapper">
+        <table class="hourly-table">
+          <thead>
+            <tr>
+              <th>Heure</th>
+              <th>Température</th>
+              <th>Météo</th>
+              <th>Humidité</th>
+              <th>Vent</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${hours.map(hour => {
+              const hourTime = new Date(hour.time);
+              return `
+                <tr>
+                  <td>${hourTime.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</td>
+                  <td><span class="temp-value">${Math.round(hour.temp_c)}°C</span></td>
+                  <td class="weather-cell">
+                    <img src="https:${hour.condition.icon}" alt="${hour.condition.text}" class="weather-icon-small">
+                    <span class="weather-desc">${hour.condition.text}</span>
+                  </td>
+                  <td>${hour.humidity}%</td>
+                  <td>${Math.round(hour.wind_kph)} km/h</td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Version Mobile -->
+      <div class="hourly-carousel-container">
+        <button class="carousel-arrow prev" aria-label="Précédent">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+        </button>
+        
+        <div class="hourly-carousel">
+          ${hours.map(hour => {
+            const hourTime = new Date(hour.time);
+            return `
+              <div class="hourly-card">
+                <div class="hour-header">
+                  ${hourTime.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
+                </div>
+                <div class="temp-value">${Math.round(hour.temp_c)}°C</div>
+                <img src="https:${hour.condition.icon}" alt="${hour.condition.text}" class="weather-icon-small">
+                <div class="weather-desc">${hour.condition.text}</div>
+                <div class="humidity-value">
+                  <span class="label">Humidité:</span> ${hour.humidity}%
+                </div>
+                <div class="wind-value">
+                  <span class="label">Vent:</span> ${Math.round(hour.wind_kph)} km/h
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+
+        <button class="carousel-arrow next" aria-label="Suivant">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+          </svg>
+        </button>
+      </div>
     </div>
   `;
+}
+
+// Ajout de la fonction pour gérer le carousel
+function initCarousel() {
+  const carousel = document.querySelector('.hourly-carousel');
+  if (!carousel) return;
+
+  const prevBtn = document.querySelector('.carousel-arrow.prev');
+  const nextBtn = document.querySelector('.carousel-arrow.next');
+  const cardWidth = 280; // Largeur d'une carte + gap
+  
+  function updateArrows() {
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    prevBtn.style.opacity = carousel.scrollLeft <= 0 ? '0.5' : '1';
+    nextBtn.style.opacity = carousel.scrollLeft >= maxScroll ? '0.5' : '1';
+  }
+
+  prevBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+  });
+
+  carousel.addEventListener('scroll', updateArrows);
+  updateArrows();
+}
+
+// Modification de la fonction handleViewChange pour initialiser le carousel
+function handleViewChange(e) {
+  const btn = e.target;
+  viewButtons.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  
+  currentView = btn.dataset.view;
+  updateDisplay();
+
+  // Initialiser le carousel si on est sur la vue "tomorrow"
+  if (currentView === 'tomorrow') {
+    setTimeout(initCarousel, 100); // Petit délai pour s'assurer que le DOM est mis à jour
+  }
 }
 
 function getLoadingHTML() {
