@@ -857,3 +857,201 @@ footer {
     padding: 1rem 2.5rem;
   }
 }
+
+/* Today's Forecast Styles */
+.today-forecast {
+  grid-column: 1/-1 !important;
+  padding: 2rem !important;
+}
+
+.today-title {
+  text-align: center;
+  color: var(--primary-dark);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+/* Table Styles for Today */
+.today-table-wrapper {
+  margin: 0 -1rem;
+  overflow-x: auto;
+  padding: 0 1rem;
+  display: none; /* Hidden by default on mobile */
+}
+
+.today-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.today-table th {
+  background: var(--primary);
+  color: white;
+  padding: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.today-table td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+}
+
+.today-table tr:last-child td {
+  border-bottom: none;
+}
+
+.today-table tr:hover {
+  background: #f8f9fa;
+}
+
+.today-weather-icon-small {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.today-weather-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 200px;
+}
+
+.today-weather-desc {
+  color: var(--text-light);
+}
+
+/* Carousel Styles for Today */
+.today-carousel-container {
+  position: relative;
+  margin: 0 -1rem;
+  padding: 1rem;
+}
+
+.today-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 0;
+}
+
+.today-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.today-hourly-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.today-hour-header {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.today-hourly-card .today-temp-value {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.today-hourly-card .today-weather-icon-small {
+  width: 64px;
+  height: 64px;
+  margin: 0.5rem 0;
+}
+
+.today-hourly-card .today-humidity-value,
+.today-hourly-card .today-wind-value {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  width: 100%;
+}
+
+.today-hourly-card .today-label {
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Carousel Navigation for Today */
+.today-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.today-carousel-arrow:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.today-carousel-arrow.today-prev {
+  left: 0.5rem;
+}
+
+.today-carousel-arrow.today-next {
+  right: 0.5rem;
+}
+
+/* Responsive Design for Today's View */
+@media (min-width: 992px) {
+  .today-table-wrapper {
+    display: block;
+    margin: 0;
+  }
+  
+  .today-carousel-container {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .today-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .today-carousel-container {
+    padding: 1rem 2.5rem;
+  }
+}

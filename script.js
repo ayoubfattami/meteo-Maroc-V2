@@ -388,84 +388,90 @@ function createDetailedDayForecast(data, dayOffset) {
   const date = new Date(day.date);
   const isToday = dayOffset === 0;
 
-  // Si c'est aujourd'hui, garder l'affichage actuel
   if (isToday) {
+    // Obtenir l'heure actuelle et arrondir à l'heure précédente
+    const now = new Date();
+    now.setMinutes(0, 0, 0);
+    
+    // Filtrer les heures à partir de l'heure actuelle jusqu'à la fin de la journée
+    const currentHours = day.hour.filter(hour => {
+      const hourTime = new Date(hour.time);
+      return hourTime >= now;
+    });
+
     return `
-      <div class="weather-card" style="grid-column: 1/-1;">
-        <h2 style="margin-bottom: 1.5rem; text-align: center;">
+      <div class="weather-card today-forecast">
+        <h2 class="today-title">
           Aujourd'hui - ${date.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })}
         </h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-          <div>
-            <h3 style="margin-bottom: 1rem;">Aperçu</h3>
-            <div style="text-align: center;">
-              <img class="weather-icon" src="https:${day.day.condition.icon}" alt="${day.day.condition.text}" style="width: 100px; height: 100px;">
-              <div class="temp" style="margin: 1rem 0;">${day.day.avgtemp_c}°C</div>
-              <div class="condition">${day.day.condition.text}</div>
-            </div>
-          </div>
+
+        <!-- Version Desktop -->
+        <div class="today-table-wrapper">
+          <table class="today-table">
+            <thead>
+              <tr>
+                <th>Heure</th>
+                <th>Température</th>
+                <th>Météo</th>
+                <th>Humidité</th>
+                <th>Vent</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${currentHours.map(hour => {
+                const hourTime = new Date(hour.time);
+                return `
+                  <tr>
+                    <td>${hourTime.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</td>
+                    <td><span class="today-temp-value">${Math.round(hour.temp_c)}°C</span></td>
+                    <td class="today-weather-cell">
+                      <img src="https:${hour.condition.icon}" alt="${hour.condition.text}" class="today-weather-icon-small">
+                      <span class="today-weather-desc">${hour.condition.text}</span>
+                    </td>
+                    <td>${hour.humidity}%</td>
+                    <td>${Math.round(hour.wind_kph)} km/h</td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Version Mobile -->
+        <div class="today-carousel-container">
+          <button class="today-carousel-arrow today-prev" aria-label="Précédent">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+          </button>
           
-          <div>
-            <h3 style="margin-bottom: 1rem;">Températures</h3>
-            <div class="details">
-              <div class="detail-item">
-                <span class="detail-label">Maximum</span>
-                <span class="detail-value">${day.day.maxtemp_c}°C</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Minimum</span>
-                <span class="detail-value">${day.day.mintemp_c}°C</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Ressenti max</span>
-                <span class="detail-value">${day.day.maxtemp_c}°C</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Ressenti min</span>
-                <span class="detail-value">${day.day.mintemp_c}°C</span>
-              </div>
-            </div>
+          <div class="today-carousel">
+            ${currentHours.map(hour => {
+              const hourTime = new Date(hour.time);
+              return `
+                <div class="today-hourly-card">
+                  <div class="today-hour-header">
+                    ${hourTime.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
+                  </div>
+                  <div class="today-temp-value">${Math.round(hour.temp_c)}°C</div>
+                  <img src="https:${hour.condition.icon}" alt="${hour.condition.text}" class="today-weather-icon-small">
+                  <div class="today-weather-desc">${hour.condition.text}</div>
+                  <div class="today-humidity-value">
+                    <span class="today-label">Humidité:</span> ${hour.humidity}%
+                  </div>
+                  <div class="today-wind-value">
+                    <span class="today-label">Vent:</span> ${Math.round(hour.wind_kph)} km/h
+                  </div>
+                </div>
+              `;
+            }).join('')}
           </div>
-          
-          <div>
-            <h3 style="margin-bottom: 1rem;">Précipitations</h3>
-            <div class="details">
-              <div class="detail-item">
-                <span class="detail-label">Chance de pluie</span>
-                <span class="detail-value">${day.day.daily_chance_of_rain}%</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Précipitations</span>
-                <span class="detail-value">${day.day.totalprecip_mm} mm</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Humidité moyenne</span>
-                <span class="detail-value">${day.day.avghumidity}%</span>
-              </div>
-            </div>
-          </div>
-          
-          <div>
-            <h3 style="margin-bottom: 1rem;">Conditions</h3>
-            <div class="details">
-              <div class="detail-item">
-                <span class="detail-label">Vent maximum</span>
-                <span class="detail-value">${day.day.maxwind_kph} km/h</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Visibilité moyenne</span>
-                <span class="detail-value">${day.day.avgvis_km} km</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Index UV</span>
-                <span class="detail-value">${day.day.uv}</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Couverture nuageuse</span>
-                <span class="detail-value">${day.day.avgvis_km}%</span>
-              </div>
-            </div>
-          </div>
+
+          <button class="today-carousel-arrow today-next" aria-label="Suivant">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <path fill="currentColor" d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+            </svg>
+          </button>
         </div>
       </div>
     `;
@@ -552,13 +558,13 @@ function createDetailedDayForecast(data, dayOffset) {
   `;
 }
 
-// Ajout de la fonction pour gérer le carousel
-function initCarousel() {
-  const carousel = document.querySelector('.hourly-carousel');
+// Ajout de la fonction pour gérer le carousel d'aujourd'hui
+function initTodayCarousel() {
+  const carousel = document.querySelector('.today-carousel');
   if (!carousel) return;
 
-  const prevBtn = document.querySelector('.carousel-arrow.prev');
-  const nextBtn = document.querySelector('.carousel-arrow.next');
+  const prevBtn = document.querySelector('.today-carousel-arrow.today-prev');
+  const nextBtn = document.querySelector('.today-carousel-arrow.today-next');
   const cardWidth = 280; // Largeur d'une carte + gap
   
   function updateArrows() {
@@ -579,7 +585,7 @@ function initCarousel() {
   updateArrows();
 }
 
-// Modification de la fonction handleViewChange pour initialiser le carousel
+// Modification de la fonction handleViewChange
 function handleViewChange(e) {
   const btn = e.target;
   viewButtons.forEach(b => b.classList.remove('active'));
@@ -588,9 +594,11 @@ function handleViewChange(e) {
   currentView = btn.dataset.view;
   updateDisplay();
 
-  // Initialiser le carousel si on est sur la vue "tomorrow"
+  // Initialiser les carousels selon la vue
   if (currentView === 'tomorrow') {
-    setTimeout(initCarousel, 100); // Petit délai pour s'assurer que le DOM est mis à jour
+    setTimeout(initCarousel, 100);
+  } else if (currentView === 'today') {
+    setTimeout(initTodayCarousel, 100);
   }
 }
 
