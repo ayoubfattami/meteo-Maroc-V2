@@ -87,13 +87,11 @@
   transition: transform 0.3s ease;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
+.main-nav a:hover {
   color: var(--primary);
 }
 
-.main-nav a:hover::after,
-.main-nav a.active::after {
+.main-nav a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -131,6 +129,10 @@ body {
 
 /* Mobile Menu Styles */
 @media (max-width: 768px) {
+  .main-header {
+    margin-bottom: 1rem;
+  }
+  
   .mobile-menu-toggle {
     display: block;
   }
