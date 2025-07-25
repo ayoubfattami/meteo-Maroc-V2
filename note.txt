@@ -1,1 +1,3 @@
 linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+et pour les classes et les id utiliser c est mieux d utiliser des clases tres personnaliser pour éviter de tomber sur une classe avec le fichier style.css

@@ -66,7 +66,6 @@ const cities = [
   "Fnideq",
   "Ouarzazate",
   "Al Hoceima",
-  "Errachidia",
   "Taroudant",
   "Zagora",
   "Ifrane"

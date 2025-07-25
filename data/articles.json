@@ -1,0 +1,205 @@
+[
+  {
+    "title": "Prévisions météo pour Casablanca : Temps ensoleillé cette semaine",
+    "summary": "Découvrez les prévisions météorologiques détaillées pour Casablanca avec des températures agréables et un ciel dégagé prévu pour les prochains jours.",
+    "date": "2024-01-15",
+    "image": "assets/images/casablanca.jpg",
+    "slug": "meteo-marrakech-ete"
+  },
+  {
+    "title": "Marrakech : Alerte canicule en cours, températures record",
+    "summary": "Les températures à Marrakech atteignent des niveaux exceptionnels. Conseils et recommandations pour faire face à cette vague de chaleur intense.",
+    "date": "2024-01-14",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "alerte-canicule-marrakech-janvier-2024"
+  },
+  {
+    "title": "Rabat : Pluies attendues ce week-end, préparez-vous",
+    "summary": "La capitale se prépare à recevoir des précipitations importantes. Retrouvez tous les détails des prévisions météo pour Rabat.",
+    "date": "2024-01-13",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "pluies-rabat-weekend-janvier-2024"
+  },
+  {
+    "title": "Fès : Brouillard matinal et températures fraîches",
+    "summary": "Les matinées à Fès sont marquées par un brouillard dense. Analyse des conditions météorologiques et conseils de conduite.",
+    "date": "2024-01-12",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "brouillard-fes-temperatures-fraiches"
+  },
+  {
+    "title": "Agadir : Climat idéal pour les activités de plein air",
+    "summary": "Agadir bénéficie d'un climat exceptionnel cette semaine. Parfait pour profiter des plages et des activités touristiques.",
+    "date": "2024-01-11",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "climat-ideal-agadir-activites-plein-air"
+  },
+  {
+    "title": "Tanger : Vents forts et mer agitée prévus",
+    "summary": "Les conditions météorologiques à Tanger annoncent des vents soutenus. Recommandations pour les activités maritimes.",
+    "date": "2024-01-10",
+    "image": "assets/images/casablanca.jpg",
+    "slug": "vents-forts-tanger-mer-agitee"
+  },
+  {
+    "title": "Meknès : Gel matinal et journées ensoleillées",
+    "summary": "Contrastes thermiques à Meknès avec des matinées glaciales suivies d'après-midis agréables sous un soleil radieux.",
+    "date": "2024-01-09",
+    "image": "assets/images/casablanca.jpg",
+    "slug": "gel-matinal-meknes-journees-ensoleillees"
+  },
+  {
+    "title": "Oujda : Températures en baisse, habillez-vous chaudement",
+    "summary": "Une chute significative des températures est attendue à Oujda. Conseils vestimentaires et prévisions détaillées.",
+    "date": "2024-01-08",
+    "image": "assets/images/casablanca.jpg",
+    "slug": "temperatures-baisse-oujda-hiver-2024"
+  },
+  {
+    "title": "Tétouan : Averses sporadiques et éclaircies",
+    "summary": "Météo changeante à Tétouan avec une alternance entre averses et périodes ensoleillées. Prévisions heure par heure.",
+    "date": "2024-01-07",
+    "image": "assets/images/casablanca.jpg",
+    "slug": "averses-sporadiques-tetouan-eclaircies"
+  },
+  {
+    "title": "Essaouira : Conditions parfaites pour le windsurf",
+    "summary": "Les amateurs de sports nautiques seront ravis ! Essaouira offre des conditions météo idéales pour le windsurf et le kitesurf.",
+    "date": "2024-01-06",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "conditions-parfaites-essaouira-windsurf"
+  },
+  {
+    "title": "Ouarzazate : Nuits froides et journées chaudes du désert",
+    "summary": "Amplitude thermique importante à Ouarzazate. Découvrez les spécificités du climat désertique de cette région.",
+    "date": "2024-01-05",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "nuits-froides-ouarzazate-journees-chaudes"
+  },
+  {
+    "title": "Kénitra : Humidité élevée et brumes côtières",
+    "summary": "L'influence atlantique se fait sentir à Kénitra avec une humidité marquée. Analyse des conditions météorologiques côtières.",
+    "date": "2024-01-04",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "humidite-elevee-kenitra-brumes-cotieres"
+  },
+  {
+    "title": "Beni Mellal : Climat montagnard et neige sur les hauteurs",
+    "summary": "Les reliefs autour de Beni Mellal se parent de blanc. Prévisions spéciales pour les zones montagneuses du Moyen Atlas.",
+    "date": "2024-01-03",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "climat-montagnard-beni-mellal-neige"
+  },
+  {
+    "title": "Safi : Brises marines et températures modérées",
+    "summary": "La ville de Safi bénéficie d'un microclimat agréable grâce aux influences océaniques. Détails des prévisions côtières.",
+    "date": "2024-01-02",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "brises-marines-safi-temperatures-moderees"
+  },
+  {
+    "title": "Nador : Soleil méditerranéen et douceur hivernale",
+    "summary": "Nador profite d'un hiver clément avec des températures douces et un ensoleillement généreux. Prévisions méditerranéennes.",
+    "date": "2024-01-01",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "soleil-mediterraneen-nador-douceur-hivernale"
+  },
+  {
+    "title": "Errachidia : Désert et oasis, contrastes climatiques",
+    "summary": "Entre désert aride et oasis verdoyantes, Errachidia offre des contrastes climatiques fascinants. Analyse météorologique complète.",
+    "date": "2023-12-31",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "desert-oasis-errachidia-contrastes-climatiques"
+  },
+  {
+    "title": "Tiznit : Influences sahariennes et climat semi-aride",
+    "summary": "Tiznit ressent les influences du Sahara proche. Découvrez les particularités météorologiques de cette région du sud.",
+    "date": "2023-12-30",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "influences-sahariennes-tiznit-climat-semi-aride"
+  },
+  {
+    "title": "Ifrane : La Suisse du Maroc sous la neige",
+    "summary": "Ifrane mérite bien son surnom ! Découvrez les conditions hivernales exceptionnelles de cette station de montagne marocaine.",
+    "date": "2023-12-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ifrane-suisse-maroc-sous-neige"
+  },
+  {
+    "title": "Ifrane : La Suisse du Maroc sous la neige",
+    "summary": "Ifrane mérite bien son surnom ! Découvrez les conditions hivernales exceptionnelles de cette station de montagne marocaine.",
+    "date": "2023-12-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ifrane-suisse-maroc-sous-neige"
+  },
+  {
+    "title": "Ifrane : La Suisse du Maroc sous la neige",
+    "summary": "Ifrane mérite bien son surnom ! Découvrez les conditions hivernales exceptionnelles de cette station de montagne marocaine.",
+    "date": "2023-12-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ifrane-suisse-maroc-sous-neige"
+  },
+  {
+    "title": "Ifrane : La Suisse du Maroc sous la neige",
+    "summary": "Ifrane mérite bien son surnom ! Découvrez les conditions hivernales exceptionnelles de cette station de montagne marocaine.",
+    "date": "2023-12-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ifrane-suisse-maroc-sous-neige"
+  },
+  {
+    "title": "Ifrane : La Suisse du Maroc sous la neige",
+    "summary": "Ifrane mérite bien son surnom ! Découvrez les conditions hivernales exceptionnelles de cette station de montagne marocaine.",
+    "date": "2023-12-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ifrane-suisse-maroc-sous-neige"
+  },
+  {
+    "title": "Ifrane : La Suisse du Maroc sous la neige",
+    "summary": "Ifrane mérite bien son surnom ! Découvrez les conditions hivernales exceptionnelles de cette station de montagne marocaine.",
+    "date": "2023-12-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ifrane-suisse-maroc-sous-neige"
+  },
+  {
+    "title": "Ifrane : La Suisse du Maroc sous la neige",
+    "summary": "Ifrane mérite bien son surnom ! Découvrez les conditions hivernales exceptionnelles de cette station de montagne marocaine.",
+    "date": "2023-12-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ifrane-suisse-maroc-sous-neige"
+  },
+  {
+    "title": "Ifrane : La Suisse du Maroc sous la neige",
+    "summary": "Ifrane mérite bien son surnom ! Découvrez les conditions hivernales exceptionnelles de cette station de montagne marocaine.",
+    "date": "2023-12-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ifrane-suisse-maroc-sous-neige"
+  },
+  {
+    "title": "Ifrane : La Suisse du Maroc sous la neige",
+    "summary": "Ifrane mérite bien son surnom ! Découvrez les conditions hivernales exceptionnelles de cette station de montagne marocaine.",
+    "date": "2023-12-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ifrane-suisse-maroc-sous-neige"
+  },
+  {
+    "title": "Ifrane : La Suisse du Maroc sous la neige",
+    "summary": "Ifrane mérite bien son surnom ! Découvrez les conditions hivernales exceptionnelles de cette station de montagne marocaine.",
+    "date": "2023-12-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ifrane-suisse-maroc-sous-neige"
+  },
+  {
+    "title": "Ifrane : La Suisse du Maroc sous la neige",
+    "summary": "Ifrane mérite bien son surnom ! Découvrez les conditions hivernales exceptionnelles de cette station de montagne marocaine.",
+    "date": "2023-12-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ifrane-suisse-maroc-sous-neige"
+  },
+  {
+    "title": "Ifrane : La Suisse du Maroc sous la neige",
+    "summary": "Ifrane mérite bien son surnom ! Découvrez les conditions hivernales exceptionnelles de cette station de montagne marocaine.",
+    "date": "2023-12-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ifrane-suisse-maroc-sous-neige"
+  }
+]
