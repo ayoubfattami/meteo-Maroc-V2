@@ -1,3 +1,60 @@
+// Gestion de la section "villes populaires"
+document.addEventListener('DOMContentLoaded', function () {
+  const popularSection = document.getElementById('popular-cities-section');
+  const citySelect = document.getElementById('citySelect');
+  const weatherGrid = document.getElementById('weather-grid');
+  const forecastGrid = document.getElementById('forecast-grid');
+  const viewBtns = document.querySelectorAll('.view-btn');
+
+  // Masquer la section populaire si une ville est déjà sélectionnée
+  function hidePopularSection() {
+    if (popularSection) popularSection.style.display = 'none';
+  }
+
+  // Afficher la section populaire
+  function showPopularSection() {
+    if (popularSection) popularSection.style.display = '';
+  }
+
+  // Quand une ville populaire est cliquée
+  if (popularSection) {
+    popularSection.addEventListener('click', function (e) {
+      if (e.target.classList.contains('popular-city-btn')) {
+        const city = e.target.getAttribute('data-city');
+        // Sélectionner la ville dans le select
+        if (citySelect) {
+          citySelect.value = city;
+          const event = new Event('change', { bubbles: true });
+          citySelect.dispatchEvent(event);
+        }
+        // Masquer la section populaire
+        hidePopularSection();
+        // Activer les filtres météo
+        viewBtns.forEach(btn => btn.classList.remove('active'));
+        if (viewBtns[0]) viewBtns[0].classList.add('active');
+        // Afficher la grille météo (si masquée)
+        if (weatherGrid) weatherGrid.style.display = '';
+        if (forecastGrid) forecastGrid.classList.add('hidden');
+      }
+    });
+  }
+
+  // Masquer la section populaire si une ville est déjà sélectionnée au chargement
+  if (citySelect && citySelect.value) {
+    hidePopularSection();
+  } else {
+    showPopularSection();
+  }
+
+  // Masquer la section populaire dès qu'une ville est sélectionnée via le select
+  if (citySelect) {
+    citySelect.addEventListener('change', function () {
+      if (citySelect.value) {
+        hidePopularSection();
+      }
+    });
+  }
+});
 // Mobile Menu Functionality
 const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
 const mainNav = document.querySelector(".main-nav");
@@ -192,14 +249,7 @@ async function handleCityChange() {
   }
 }
 
-function handleViewChange(e) {
-  const btn = e.target;
-  viewButtons.forEach((b) => b.classList.remove("active"));
-  btn.classList.add("active");
-
-  currentView = btn.dataset.view;
-  updateDisplay();
-}
+// La fonction handleViewChange a été déplacée plus bas dans le code
 
 function updateDetailVisibility() {
   const selectedDetails = Array.from(detailCheckboxes)
@@ -239,8 +289,19 @@ async function fetchForecastData(city) {
 function updateDisplay() {
   if (!weatherData || !forecastData) return;
 
+  // Vider les deux conteneurs avant d'ajouter du nouveau contenu
+  weatherGrid.innerHTML = "";
+  forecastGrid.innerHTML = "";
+  
+  // Cacher les deux grilles par défaut
   weatherGrid.classList.add("hidden");
   forecastGrid.classList.add("hidden");
+  
+  // Supprimer tous les messages de chargement existants
+  document.querySelectorAll('.loading').forEach(el => el.remove());
+  
+  // Message personnalisé dans la console pour confirmer le changement de section
+  console.log(`✅ Section météo changée: ${currentView} - Contenu précédent effacé avec succès`);
 
   switch (currentView) {
     case "general": {
@@ -713,21 +774,86 @@ function initTodayCarousel() {
   updateArrows();
 }
 
-// Modification de la fonction handleViewChange
+// Fonction pour initialiser le carousel des prévisions pour demain
+function initCarousel() {
+  const carousel = document.querySelector(".hourly-carousel");
+  if (!carousel) return;
+
+  const prevBtn = document.querySelector(".carousel-arrow.prev");
+  const nextBtn = document.querySelector(".carousel-arrow.next");
+  const cardWidth = 280; // Largeur d'une carte + gap
+
+  function updateArrows() {
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    prevBtn.style.opacity = carousel.scrollLeft <= 0 ? "0.5" : "1";
+    nextBtn.style.opacity = carousel.scrollLeft >= maxScroll ? "0.5" : "1";
+  }
+
+  prevBtn.addEventListener("click", () => {
+    carousel.scrollBy({ left: -cardWidth, behavior: "smooth" });
+  });
+
+  nextBtn.addEventListener("click", () => {
+    carousel.scrollBy({ left: cardWidth, behavior: "smooth" });
+  });
+
+  carousel.addEventListener("scroll", updateArrows);
+  updateArrows();
+}
+
+// Fonction handleViewChange améliorée pour gérer tous les types de vues
 function handleViewChange(e) {
   const btn = e.target;
+  const newView = btn.dataset.view;
+  
+  // Mettre à jour le bouton actif
   viewButtons.forEach((b) => b.classList.remove("active"));
   btn.classList.add("active");
 
-  currentView = btn.dataset.view;
-  updateDisplay();
-
-  // Initialiser les carousels selon la vue
-  if (currentView === "tomorrow") {
-    setTimeout(initCarousel, 100);
-  } else if (currentView === "today") {
-    setTimeout(initTodayCarousel, 100);
+  // Vider les conteneurs avant de changer de vue
+  weatherGrid.innerHTML = "";
+  forecastGrid.innerHTML = "";
+  
+  // Supprimer toutes les classes de vue précédentes du body
+  document.body.classList.remove(
+    "view-general", 
+    "view-14days", 
+    "view-current-month", 
+    "view-next-month", 
+    "view-today", 
+    "view-tomorrow"
+  );
+  
+  // Ajouter la classe correspondant à la vue actuelle
+  document.body.classList.add(`view-${newView}`);
+  
+  // Afficher un message de chargement temporaire
+  const loadingHTML = getLoadingHTML();
+  
+  // Déterminer quel conteneur doit recevoir le message de chargement
+  if (newView === "14days" || newView === "current-month" || newView === "next-month") {
+    forecastGrid.innerHTML = loadingHTML;
+    forecastGrid.classList.remove("hidden");
+    weatherGrid.classList.add("hidden");
+  } else {
+    weatherGrid.innerHTML = loadingHTML;
+    weatherGrid.classList.remove("hidden");
+    forecastGrid.classList.add("hidden");
   }
+
+  currentView = newView;
+  
+  // Mettre à jour l'affichage après un court délai pour permettre l'affichage du message de chargement
+  setTimeout(() => {
+    updateDisplay();
+    
+    // Initialiser les carousels selon la vue
+    if (currentView === "tomorrow") {
+      setTimeout(initCarousel, 100);
+    } else if (currentView === "today") {
+      setTimeout(initTodayCarousel, 100);
+    }
+  }, 50);
 }
 
 function getLoadingHTML() {

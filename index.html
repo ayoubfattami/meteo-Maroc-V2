@@ -62,10 +62,22 @@
     </div>
 
     <div class="weather-content">
-      <div id="weather-grid" class="weather-grid">
-        <div class="loading">
-          <div class="spinner"></div>
-          <span>Chargement des données météo...</span>
+      <div id="weather-grid" class="weather-grid weather-grid-full-width">
+        <div id="popular-cities-section" class="popular-cities-section">
+          <h3 class="popular-cities-title">Villes marocaines populaires</h3>
+          <div class="popular-cities-list">
+            <button class="popular-city-btn" data-city="Casablanca">Casablanca</button>
+            <button class="popular-city-btn" data-city="Marrakech">Marrakech</button>
+            <button class="popular-city-btn" data-city="Agadir">Agadir</button>
+            <button class="popular-city-btn" data-city="Fès">Fès</button>
+            <button class="popular-city-btn" data-city="Rabat">Rabat</button>
+            <button class="popular-city-btn" data-city="Tanger">Tanger</button>
+            <button class="popular-city-btn" data-city="Oujda">Oujda</button>
+            <button class="popular-city-btn" data-city="Meknès">Meknès</button>
+            <button class="popular-city-btn" data-city="Tétouan">Tétouan</button>
+            <button class="popular-city-btn" data-city="Laâyoune">Laâyoune</button>
+          </div>
+          <div class="popular-cities-tip">Cliquez sur une ville pour voir la météo détaillée</div>
         </div>
       </div>
 
