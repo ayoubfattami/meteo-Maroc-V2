@@ -35,20 +35,29 @@
   </header>
 
   <div class="container">
-    <div class="controls">
-      <div class="city-selector">
-        <select id="citySelect" class="select-city">
-          <option value="">Sélectionner une ville...</option>
-        </select>
+    <div class="hero-section">
+      <div class="hero-content">
+        <h2 class="hero-title">Prévisions Météo au Maroc</h2>
+        <p class="hero-subtitle">Découvrez les conditions météorologiques en temps réel pour toutes les villes du Maroc</p>
       </div>
       
-      <div class="view-filters">
-        <button class="view-btn active" data-view="general">Aperçu Général</button>
-        <button class="view-btn" data-view="14days">14 Jours</button>
-        <button class="view-btn" data-view="current-month">Mois Actuel</button>
-        <button class="view-btn" data-view="next-month">Mois Suivant</button>
-        <button class="view-btn" data-view="today">Aujourd'hui</button>
-        <button class="view-btn" data-view="tomorrow">Demain</button>
+      <div class="controls">
+        <div class="city-selector-container">
+          <div class="city-selector">
+            <select id="citySelect" class="select-city">
+              <option value="">Sélectionner une ville...</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="view-filters">
+          <button class="view-btn active" data-view="general">Aperçu Général</button>
+          <button class="view-btn" data-view="14days">14 Jours</button>
+          <button class="view-btn" data-view="current-month">Mois Actuel</button>
+          <button class="view-btn" data-view="next-month">Mois Suivant</button>
+          <button class="view-btn" data-view="today">Aujourd'hui</button>
+          <button class="view-btn" data-view="tomorrow">Demain</button>
+        </div>
       </div>
     </div>
 
