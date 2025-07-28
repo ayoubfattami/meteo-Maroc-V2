@@ -44,7 +44,9 @@
       <div class="controls">
         <div class="city-selector-container">
           <div class="city-selector">
-            <select id="citySelect" class="select-city">
+            <input type="text" id="citySearch" class="city-search" placeholder="Rechercher une ville...">
+            <ul class="suggestions-list hidden" id="suggestionsList"></ul>
+            <select id="citySelect" class="select-city hidden">
               <option value="">Sélectionner une ville...</option>
             </select>
           </div>

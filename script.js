@@ -31,7 +31,12 @@ document.addEventListener('DOMContentLoaded', function () {
     popularSection.addEventListener('click', function (e) {
       if (e.target.classList.contains('popular-city-btn')) {
         const city = e.target.getAttribute('data-city');
-        // Sélectionner la ville dans le select
+        // Mettre à jour le champ de recherche visible et le select caché
+        const citySearch = document.getElementById('citySearch');
+        if (citySearch) {
+          citySearch.value = city;
+        }
+        // Sélectionner la ville dans le select (toujours utilisé pour la logique)
         if (citySelect) {
           citySelect.value = city;
           const event = new Event('change', { bubbles: true });
@@ -155,6 +160,34 @@ window.addEventListener("resize", () => {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Gestion des liens de villes dans le footer
+document.addEventListener('DOMContentLoaded', function() {
+  const cityLinks = document.querySelectorAll('.city-link');
+  cityLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const city = this.getAttribute('data-city');
+      
+      // Mettre à jour le champ de recherche visible
+      const citySearch = document.getElementById('citySearch');
+      if (citySearch) {
+        citySearch.value = city;
+      }
+      
+      // Mettre à jour le select caché et déclencher le changement
+      const citySelect = document.getElementById('citySelect');
+      if (citySelect) {
+        citySelect.value = city;
+        const event = new Event('change', { bubbles: true });
+        citySelect.dispatchEvent(event);
+      }
+      
+      // Faire défiler vers le haut de la page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+});
+
 const cities = [
   "Casablanca",
   "Rabat",
@@ -204,25 +237,13 @@ const detailCheckboxes = document.querySelectorAll(".detail-checkbox input");
 
 // Initialize city search and select
 function initializeCitySearch() {
-  const searchWrapper = document.createElement("div");
-  searchWrapper.className = "search-wrapper";
-
-  const searchInput = document.createElement("input");
-  searchInput.type = "text";
-  searchInput.placeholder = "Rechercher une ville...";
-  searchInput.className = "city-search";
-
-  const suggestionsList = document.createElement("ul");
-  suggestionsList.className = "suggestions-list hidden";
-
-  searchWrapper.appendChild(searchInput);
-  searchWrapper.appendChild(suggestionsList);
-  citySelect.parentElement.insertBefore(searchWrapper, citySelect);
-
+  const citySearch = document.getElementById("citySearch");
+  const suggestionsList = document.getElementById("suggestionsList");
+  
   // Sort cities alphabetically
   cities.sort((a, b) => a.localeCompare(b, "fr"));
 
-  // Add cities to select
+  // Add cities to select (hidden but still used for functionality)
   cities.forEach((city) => {
     const option = document.createElement("option");
     option.value = city;
@@ -231,7 +252,7 @@ function initializeCitySearch() {
   });
 
   // Search input handler
-  searchInput.addEventListener("input", (e) => {
+  citySearch.addEventListener("input", (e) => {
     const value = e.target.value.toLowerCase();
     suggestionsList.innerHTML = "";
 
@@ -248,7 +269,7 @@ function initializeCitySearch() {
         const li = document.createElement("li");
         li.textContent = city;
         li.addEventListener("click", () => {
-          searchInput.value = city;
+          citySearch.value = city;
           citySelect.value = city;
           suggestionsList.classList.add("hidden");
           handleCityChange();
@@ -262,15 +283,40 @@ function initializeCitySearch() {
 
   // Hide suggestions when clicking outside
   document.addEventListener("click", (e) => {
-    if (!searchWrapper.contains(e.target)) {
+    if (!citySearch.contains(e.target) && !suggestionsList.contains(e.target)) {
       suggestionsList.classList.add("hidden");
     }
   });
 
-  // Sync select with search
+  // Sync select with search (for compatibility with existing code)
   citySelect.addEventListener("change", () => {
-    searchInput.value = citySelect.value;
+    citySearch.value = citySelect.value;
     handleCityChange();
+  });
+  
+  // Permettre la recherche en appuyant sur Entrée
+  citySearch.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      // Si une seule suggestion correspond, la sélectionner
+      const value = citySearch.value.toLowerCase();
+      const matches = cities.filter((city) => city.toLowerCase().includes(value));
+      
+      if (matches.length === 1) {
+        citySearch.value = matches[0];
+        citySelect.value = matches[0];
+        suggestionsList.classList.add("hidden");
+        handleCityChange();
+      } else if (matches.length > 1) {
+        // Si plusieurs suggestions, sélectionner la première qui commence par la valeur
+        const exactMatches = matches.filter(city => city.toLowerCase().startsWith(value));
+        if (exactMatches.length > 0) {
+          citySearch.value = exactMatches[0];
+          citySelect.value = exactMatches[0];
+          suggestionsList.classList.add("hidden");
+          handleCityChange();
+        }
+      }
+    }
   });
 }
 
