@@ -544,40 +544,76 @@ function createCurrentWeatherBlock(data) {
 
 function create14DaysForecast(data) {
   return data.forecast.forecastday
-    .map((day) => {
+    .map((day, index) => {
       const date = new Date(day.date);
+      const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+      const hasExtremeCondition = day.day.daily_chance_of_rain > 70 || 
+                                day.day.maxwind_kph > 50 || 
+                                day.day.avgtemp_c > 35 || 
+                                day.day.avgtemp_c < 5;
+      
+      // Icônes SVG pour les infos compactes
+      const windIcon = `<svg class="mini-weather-icon" fill="none" stroke="#26c6da" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12h16M4 18h10M4 6h6"/><circle cx="20" cy="18" r="2"/></svg>`;
+      const humidityIcon = `<svg class="mini-weather-icon" fill="none" stroke="#1e88e5" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C12 2 7 8.5 7 13a5 5 0 0 0 10 0c0-4.5-5-11-5-11z"/><circle cx="12" cy="17" r="1.5"/></svg>`;
+      const uvIcon = `<svg class="mini-weather-icon" fill="none" stroke="#ffb300" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
+      const rainIcon = `<svg class="mini-weather-icon" fill="none" stroke="#2196f3" stroke-width="2" viewBox="0 0 24 24"><path d="M16 13v-1a4 4 0 0 0-8 0v1"/><path d="M8 17v2M16 17v2"/></svg>`;
+      
+      // Calcul du pourcentage de remplissage de la barre de pluie
+      const rainProbabilityWidth = `${day.day.daily_chance_of_rain}%`;
+      
+      // Animation décalée pour chaque carte
+      const animationDelay = `${index * 0.05}s`;
+      
       return `
-      <div class="weather-card">
+      <div class="weather-card card-enhanced forecast-card-enhanced ${isWeekend ? 'weekend-day' : ''}" style="animation-delay: ${animationDelay};">
+        ${hasExtremeCondition ? `<div class="weather-alert-badge">Alerte</div>` : ''}
+        
         <div style="font-size: 1rem; font-weight: 600; text-align: center;">
           ${date.toLocaleDateString("fr-FR", {
             weekday: "long",
             day: "numeric",
           })}
         </div>
-        <img class="weather-icon" src="https:${day.day.condition.icon}" alt="${
-        day.day.condition.text
-      }">
+        
+        <img class="weather-icon" src="https:${day.day.condition.icon}" alt="${day.day.condition.text}">
+        
         <div class="temp">${day.day.avgtemp_c}°C</div>
+        
+        <div class="temp-range-container">
+          <span class="temp-min">${day.day.mintemp_c}°</span>
+          <span class="temp-arrow">→</span>
+          <span class="temp-max">${day.day.maxtemp_c}°</span>
+        </div>
+        
         <div class="condition">${day.day.condition.text}</div>
-        <div class="details">
-          <div class="detail-item">
-            <span class="detail-label">Max/Min</span>
-            <span class="detail-value">${day.day.maxtemp_c}°/${
-        day.day.mintemp_c
-      }°</span>
+        
+        <div class="rain-probability-bar">
+          <div class="rain-probability-fill" style="width: ${rainProbabilityWidth}"></div>
+        </div>
+        
+        <div class="compact-weather-info">
+          <div class="compact-weather-info-item">
+            ${windIcon}
+            <span class="compact-weather-info-value">${day.day.maxwind_kph}</span>
+            <span>km/h</span>
           </div>
-          <div class="detail-item">
-            <span class="detail-label">Pluie</span>
-            <span class="detail-value">${day.day.daily_chance_of_rain}%</span>
+          
+          <div class="compact-weather-info-item">
+            ${humidityIcon}
+            <span class="compact-weather-info-value">${day.day.avghumidity}</span>
+            <span>%</span>
           </div>
-          <div class="detail-item">
-            <span class="detail-label">Humidité</span>
-            <span class="detail-value">${day.day.avghumidity}%</span>
+          
+          <div class="compact-weather-info-item">
+            ${rainIcon}
+            <span class="compact-weather-info-value">${day.day.daily_chance_of_rain}</span>
+            <span>%</span>
           </div>
-          <div class="detail-item">
-            <span class="detail-label">Vent max</span>
-            <span class="detail-value">${day.day.maxwind_kph} km/h</span>
-          </div>
+        </div>
+        
+        <div class="enhanced-forecast-details">
+          ${day.day.uv ? `<div class="enhanced-detail-chip">${uvIcon} UV: ${day.day.uv}</div>` : ''}
+          ${day.day.daily_will_it_rain ? `<div class="enhanced-detail-chip">${rainIcon} Pluie</div>` : ''}
         </div>
       </div>
     `;
@@ -604,36 +640,76 @@ function createMonthlyForecast(data, monthOffset) {
   return `
     <h2 class="month-title">${monthName}</h2>
     ${daysInMonth
-      .map((day) => {
+      .map((day, index) => {
         const date = new Date(day.date);
+        const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+        const hasExtremeCondition = day.day.daily_chance_of_rain > 70 || 
+                                  day.day.maxwind_kph > 50 || 
+                                  day.day.avgtemp_c > 35 || 
+                                  day.day.avgtemp_c < 5;
+        
+        // Icônes SVG pour les infos compactes
+        const windIcon = `<svg class="mini-weather-icon" fill="none" stroke="#26c6da" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12h16M4 18h10M4 6h6"/><circle cx="20" cy="18" r="2"/></svg>`;
+        const humidityIcon = `<svg class="mini-weather-icon" fill="none" stroke="#1e88e5" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C12 2 7 8.5 7 13a5 5 0 0 0 10 0c0-4.5-5-11-5-11z"/><circle cx="12" cy="17" r="1.5"/></svg>`;
+        const uvIcon = `<svg class="mini-weather-icon" fill="none" stroke="#ffb300" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
+        const rainIcon = `<svg class="mini-weather-icon" fill="none" stroke="#2196f3" stroke-width="2" viewBox="0 0 24 24"><path d="M16 13v-1a4 4 0 0 0-8 0v1"/><path d="M8 17v2M16 17v2"/></svg>`;
+        
+        // Calcul du pourcentage de remplissage de la barre de pluie
+        const rainProbabilityWidth = `${day.day.daily_chance_of_rain}%`;
+        
+        // Animation décalée pour chaque carte
+        const animationDelay = `${index * 0.05}s`;
+        
         return `
-        <div class="weather-card">
+        <div class="weather-card card-enhanced forecast-card-enhanced ${isWeekend ? 'weekend-day' : ''}" style="animation-delay: ${animationDelay};">
+          ${hasExtremeCondition ? `<div class="weather-alert-badge">Alerte</div>` : ''}
+          
           <div style="font-size: 1rem; font-weight: 600; text-align: center;">
             ${date.toLocaleDateString("fr-FR", {
               weekday: "long",
               day: "numeric",
             })}
           </div>
-          <img class="weather-icon" src="https:${
-            day.day.condition.icon
-          }" alt="${day.day.condition.text}">
+          
+          <img class="weather-icon" src="https:${day.day.condition.icon}" alt="${day.day.condition.text}">
+          
           <div class="temp">${day.day.avgtemp_c}°C</div>
+          
+          <div class="temp-range-container">
+            <span class="temp-min">${day.day.mintemp_c}°</span>
+            <span class="temp-arrow">→</span>
+            <span class="temp-max">${day.day.maxtemp_c}°</span>
+          </div>
+          
           <div class="condition">${day.day.condition.text}</div>
-          <div class="details">
-            <div class="detail-item">
-              <span class="detail-label">Max/Min</span>
-              <span class="detail-value">${day.day.maxtemp_c}°/${
-          day.day.mintemp_c
-        }°</span>
+          
+          <div class="rain-probability-bar">
+            <div class="rain-probability-fill" style="width: ${rainProbabilityWidth}"></div>
+          </div>
+          
+          <div class="compact-weather-info">
+            <div class="compact-weather-info-item">
+              ${windIcon}
+              <span class="compact-weather-info-value">${day.day.maxwind_kph}</span>
+              <span>km/h</span>
             </div>
-            <div class="detail-item">
-              <span class="detail-label">Pluie</span>
-              <span class="detail-value">${day.day.daily_chance_of_rain}%</span>
+            
+            <div class="compact-weather-info-item">
+              ${humidityIcon}
+              <span class="compact-weather-info-value">${day.day.avghumidity}</span>
+              <span>%</span>
             </div>
-            <div class="detail-item">
-              <span class="detail-label">Humidité</span>
-              <span class="detail-value">${day.day.avghumidity}%</span>
+            
+            <div class="compact-weather-info-item">
+              ${rainIcon}
+              <span class="compact-weather-info-value">${day.day.daily_chance_of_rain}</span>
+              <span>%</span>
             </div>
+          </div>
+          
+          <div class="enhanced-forecast-details">
+            ${day.day.uv ? `<div class="enhanced-detail-chip">${uvIcon} UV: ${day.day.uv}</div>` : ''}
+            ${day.day.daily_will_it_rain ? `<div class="enhanced-detail-chip">${rainIcon} Pluie</div>` : ''}
           </div>
         </div>
       `;
