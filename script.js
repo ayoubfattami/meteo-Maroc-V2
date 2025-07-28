@@ -1,19 +1,29 @@
-// Gestion de la section "villes populaires"
+// Gestion des sections d'introduction, FAQ et villes populaires
 document.addEventListener('DOMContentLoaded', function () {
+  const introSection = document.getElementById('site-intro-section');
+  const faqSection = document.getElementById('faq-section');
   const popularSection = document.getElementById('popular-cities-section');
   const citySelect = document.getElementById('citySelect');
   const weatherGrid = document.getElementById('weather-grid');
   const forecastGrid = document.getElementById('forecast-grid');
   const viewBtns = document.querySelectorAll('.view-btn');
 
-  // Masquer la section populaire si une ville est déjà sélectionnée
-  function hidePopularSection() {
+  // Masquer les sections informatives si une ville est déjà sélectionnée
+  function hideInfoSections() {
+    if (introSection) introSection.style.display = 'none';
+    if (faqSection) faqSection.style.display = 'none';
     if (popularSection) popularSection.style.display = 'none';
+    // Ajouter la classe city-selected au body pour afficher les boutons de vue
+    document.body.classList.add('city-selected');
   }
 
-  // Afficher la section populaire
-  function showPopularSection() {
+  // Afficher les sections informatives
+  function showInfoSections() {
+    if (introSection) introSection.style.display = '';
+    if (faqSection) faqSection.style.display = '';
     if (popularSection) popularSection.style.display = '';
+    // Retirer la classe city-selected du body pour cacher les boutons de vue
+    document.body.classList.remove('city-selected');
   }
 
   // Quand une ville populaire est cliquée
@@ -27,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
           const event = new Event('change', { bubbles: true });
           citySelect.dispatchEvent(event);
         }
-        // Masquer la section populaire
-        hidePopularSection();
+        // Masquer les sections informatives
+        hideInfoSections();
         // Activer les filtres météo
         viewBtns.forEach(btn => btn.classList.remove('active'));
         if (viewBtns[0]) viewBtns[0].classList.add('active');
@@ -39,20 +49,75 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Masquer la section populaire si une ville est déjà sélectionnée au chargement
+  // Masquer les sections informatives si une ville est déjà sélectionnée au chargement
   if (citySelect && citySelect.value) {
-    hidePopularSection();
+    hideInfoSections();
+    // S'assurer que les boutons de vue sont visibles si une ville est déjà sélectionnée
+    document.body.classList.add('city-selected');
   } else {
-    showPopularSection();
+    showInfoSections();
+    // S'assurer que les boutons de vue sont cachés si aucune ville n'est sélectionnée
+    document.body.classList.remove('city-selected');
   }
 
-  // Masquer la section populaire dès qu'une ville est sélectionnée via le select
+  // Masquer les sections informatives dès qu'une ville est sélectionnée via le select
   if (citySelect) {
     citySelect.addEventListener('change', function () {
       if (citySelect.value) {
-        hidePopularSection();
+        hideInfoSections();
       }
     });
+  }
+  
+  // Gestion de l'interactivité de la FAQ
+  const faqItems = document.querySelectorAll('.mm-faq-question');
+  faqItems.forEach(item => {
+    // Ajouter un indicateur visuel pour montrer que c'est cliquable
+    item.innerHTML += '<span class="mm-faq-toggle">+</span>';
+    
+    // Masquer toutes les réponses par défaut
+    const answer = item.nextElementSibling;
+    answer.style.display = 'none';
+    
+    // Ajouter l'événement de clic
+    item.addEventListener('click', function() {
+      const answer = this.nextElementSibling;
+      const toggle = this.querySelector('.mm-faq-toggle');
+      
+      // Fermer toutes les autres réponses ouvertes
+      faqItems.forEach(otherItem => {
+        if (otherItem !== this && otherItem.classList.contains('mm-faq-active')) {
+          const otherAnswer = otherItem.nextElementSibling;
+          const otherToggle = otherItem.querySelector('.mm-faq-toggle');
+          
+          otherAnswer.style.display = 'none';
+          otherToggle.textContent = '+';
+          otherItem.classList.remove('mm-faq-active');
+        }
+      });
+      
+      // Basculer l'affichage de la réponse avec une animation
+      if (answer.style.display === 'none') {
+        // Afficher la réponse
+        answer.style.display = 'block';
+        toggle.textContent = '−';
+        this.classList.add('mm-faq-active');
+        toggle.style.transform = 'rotate(180deg)';
+      } else {
+        // Masquer la réponse
+        answer.style.display = 'none';
+        toggle.textContent = '+';
+        this.classList.remove('mm-faq-active');
+        toggle.style.transform = 'rotate(0deg)';
+      }
+    });
+  });
+  
+  // Ouvrir la première question par défaut
+  if (faqItems.length > 0) {
+    setTimeout(() => {
+      faqItems[0].click();
+    }, 500);
   }
 });
 // Mobile Menu Functionality
@@ -228,8 +293,15 @@ detailCheckboxes.forEach((checkbox) =>
 
 async function handleCityChange() {
   currentCity = citySelect.value;
-  if (!currentCity) return;
+  if (!currentCity) {
+    // Si aucune ville n'est sélectionnée, cacher les boutons de vue
+    document.body.classList.remove('city-selected');
+    return;
+  }
 
+  // Ajouter la classe city-selected pour afficher les boutons de vue
+  document.body.classList.add('city-selected');
+  
   weatherGrid.innerHTML = getLoadingHTML();
   forecastGrid.innerHTML = "";
 
