@@ -425,10 +425,32 @@ function updateDisplay() {
     case "general": {
       // Modern current weather block with all available info and icons
       weatherGrid.innerHTML = createCurrentWeatherBlock(weatherData);
+      
+      // Création d'un conteneur pour le graphique avec son titre
+      const chartWrapper = document.createElement("div");
+      chartWrapper.className = "meteo_maroc_v2_chart_wrapper_unique_20240615";
+      
+      // Création du conteneur pour le graphique lui-même
       const chartContainer = document.createElement("div");
-      chartContainer.className = "chart-container";
+      chartContainer.className = "meteo_maroc_v2_chart_container_unique_20240615";
       chartContainer.appendChild(createWeatherChart(forecastData));
-      weatherGrid.appendChild(chartContainer);
+      
+      // Ajout du conteneur de graphique au wrapper
+      chartWrapper.appendChild(chartContainer);
+      
+      // Création du titre avec une classe unique (placé après la courbe)
+      const chartTitleContainer = document.createElement("div");
+      chartTitleContainer.className = "meteo_maroc_v2_chart_title_container_unique_20240615";
+      
+      const chartTitleText = document.createElement("h2");
+      chartTitleText.className = "meteo_maroc_v2_chart_title_text_unique_20240615";
+      chartTitleText.textContent = "Évolution des températures sur 7 jours";
+      
+      chartTitleContainer.appendChild(chartTitleText);
+      chartWrapper.appendChild(chartTitleContainer);
+      
+      // Ajout du wrapper complet à la grille météo
+      weatherGrid.appendChild(chartWrapper);
       weatherGrid.classList.remove("hidden");
       break;
     }

@@ -1623,6 +1623,42 @@ h1::after {
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 }
 
+/* Styles ultra personnalisés pour le wrapper du graphique et son titre */
+.meteo_maroc_v2_chart_wrapper_unique_20240615 {
+  grid-column: 1/-1;
+  margin-top: 2rem;
+}
+
+/* Styles ultra personnalisés pour le conteneur du graphique */
+.meteo_maroc_v2_chart_container_unique_20240615 {
+  grid-column: 1/-1;
+  background: white;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  border-radius: 15px 15px 0 0;
+  box-shadow: var(--shadow);
+  margin-top: 0;
+}
+
+/* Styles ultra personnalisés pour le conteneur du titre */
+.meteo_maroc_v2_chart_title_container_unique_20240615 {
+  background: white;
+  padding: 0.5rem 1.5rem 1rem 1.5rem;
+  text-align: center;
+  border-radius: 0 0 15px 15px;
+  box-shadow: var(--shadow);
+  margin-top: -1px;
+}
+
+/* Styles ultra personnalisés pour le texte du titre */
+.meteo_maroc_v2_chart_title_text_unique_20240615 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--primary-dark);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Maintien de la classe originale pour compatibilité */
 .chart-container {
   grid-column: 1/-1;
   background: white;
@@ -2080,6 +2116,19 @@ footer {
   .chart-container {
     padding: 1rem;
   }
+  
+  /* Styles responsifs pour les classes ultra personnalisées */
+  .meteo_maroc_v2_chart_container_unique_20240615 {
+    padding: 1rem 1rem 0.8rem 1rem;
+  }
+  
+  .meteo_maroc_v2_chart_title_container_unique_20240615 {
+    padding: 0.3rem 1rem 0.8rem 1rem;
+  }
+  
+  .meteo_maroc_v2_chart_title_text_unique_20240615 {
+    font-size: 1.1rem;
+  }
 
   .select-city {
     padding: 0.9rem 1rem;
@@ -2104,6 +2153,19 @@ footer {
   
   .weather-card {
     padding: 1.5rem;
+  }
+  
+  /* Styles ultra personnalisés pour très petits écrans */
+  .meteo_maroc_v2_chart_container_unique_20240615 {
+    padding: 0.8rem 0.8rem 0.6rem 0.8rem;
+  }
+  
+  .meteo_maroc_v2_chart_title_container_unique_20240615 {
+    padding: 0.2rem 0.8rem 0.6rem 0.8rem;
+  }
+  
+  .meteo_maroc_v2_chart_title_text_unique_20240615 {
+    font-size: 1rem;
   }
 
   .city-name {
