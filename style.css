@@ -538,7 +538,8 @@ body {
   min-height: 100vh;
   line-height: 1.6;
   font-family: 'Poppins', sans-serif;
-  background: var(--bg-gradient);
+  /* Remplacement du gris par un bleu doux et lumineux adapté à la météo */
+  background: linear-gradient(135deg, #e3f2fd 0%, #b3e5fc 100%);
   color: var(--text);
 }
 
@@ -558,10 +559,15 @@ body {
   }
   
   .suggestions-list {
-    max-height: 160px;
-    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(30, 136, 229, 0.1);
-    position: absolute;
-    top: calc(100% + 5px);
+    order: -1;
+    position: static;
+    margin-bottom: 0.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(30, 136, 229, 0.08);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1;
   }
   
   .suggestions-list li {
@@ -658,6 +664,119 @@ h1::after {
   overflow: hidden;
   position: relative;
   animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Hero Section Modern - Inspired by Codeur.com */
+.hero-modern {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(135deg, #1e88e5 0%, #0d47a1 100%);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px -15px rgba(0, 98, 230, 0.4);
+  overflow: hidden;
+  position: relative;
+  animation: fadeInUp 0.8s ease-out forwards, rotateGradient 15s ease infinite;
+  color: white;
+}
+
+@keyframes rotateGradient {
+  0% {
+    background: linear-gradient(135deg, #1e88e5, #0d47a1);
+  }
+  25% {
+    background: linear-gradient(180deg, #1e88e5, #0d47a1);
+  }
+  50% {
+    background: linear-gradient(225deg, #1e88e5, #0d47a1);
+  }
+  75% {
+    background: linear-gradient(270deg, #1e88e5, #0d47a1);
+  }
+  100% {
+    background: linear-gradient(315deg, #1e88e5, #0d47a1);
+  }
+}
+
+.hero-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 50%);
+  opacity: 0.8;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floating-circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floating-circle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  animation: floatAnimation 8s infinite ease-in-out;
+}
+
+.floating-circle:nth-child(1) {
+  width: 150px;
+  height: 150px;
+  top: -75px;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 15s;
+}
+
+.floating-circle:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  right: 10%;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.floating-circle:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  bottom: 10%;
+  left: 20%;
+  animation-delay: 1s;
+  animation-duration: 10s;
+}
+
+.floating-circle:nth-child(4) {
+  width: 60px;
+  height: 60px;
+  bottom: 30%;
+  right: 5%;
+  animation-delay: 3s;
+  animation-duration: 8s;
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-15px) translateX(15px);
+  }
+  50% {
+    transform: translateY(10px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-5px) translateX(5px);
+  }
 }
 
 @keyframes fadeInUp {
@@ -765,6 +884,83 @@ h1::after {
   }
 }
 
+/* Hero Content Modern - Inspired by Codeur.com */
+.hero-content-modern {
+  padding: 3.5rem 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title-enhanced {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeInDown 0.8s ease-out 0.2s forwards, glow 3s ease-in-out infinite alternate;
+  opacity: 0;
+}
+
+.hero-title-enhanced .highlight {
+  position: relative;
+  display: inline-block;
+  color: #FFFFFF;
+  z-index: 1;
+}
+
+.hero-title-enhanced .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  z-index: -1;
+  animation: expandWidthFull 1s ease-out 0.8s forwards;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+@keyframes expandWidthFull {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  to {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.hero-subtitle-enhanced {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+  animation: fadeIn 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+  letter-spacing: 0.01em;
+}
+
 /* Search and Controls */
 .controls {
   padding: 1.5rem 2rem 2rem;
@@ -791,6 +987,35 @@ h1::after {
   background: linear-gradient(to right, rgba(30, 136, 229, 0.05), rgba(30, 136, 229, 0.2), rgba(30, 136, 229, 0.05));
 }
 
+/* Controls Modern - Inspired by Codeur.com */
+.controls-modern {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.controls-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .city-selector-container {
   position: relative;
   margin-bottom: 1.5rem;
@@ -799,9 +1024,8 @@ h1::after {
 }
 
 .city-selector {
-  position: relative;
-  animation: fadeInRight 0.8s ease-out 0.8s forwards;
-  opacity: 0;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .hidden {
@@ -814,17 +1038,6 @@ h1::after {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(-15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 .search-wrapper {
@@ -849,6 +1062,7 @@ h1::after {
   background-size: 1.2rem;
   padding-right: 2.5rem;
   transform: translateY(0);
+  color: #222 !important; /* Texte input foncé */
 }
 
 .city-search:hover, .city-search:focus {
@@ -862,38 +1076,85 @@ h1::after {
   animation: gentle-pulse 2s infinite;
 }
 
-.suggestions-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(30, 136, 229, 0.1);
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 2000;
-  margin-top: 0.5rem;
-  transform: translateY(0);
-  opacity: 1;
+/* Modern Search Input - Inspired by Codeur.com */
+.city-search-modern {
+  width: 100%;
+  max-width: 600px;
+  padding: 1.1rem 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  animation: fadeInSuggestions 0.3s ease-out forwards;
+  position: relative;
+  margin: 0 auto;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231e88e5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 1.2rem center;
+  background-size: 1.2rem;
+  padding-left: 3rem;
+  transform: translateY(0);
+  color: #222 !important; /* Texte input foncé */
 }
 
-@keyframes fadeInSuggestions {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+.city-search-modern:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.city-search-modern:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15), 0 0 0 5px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  animation: gentle-glow 2s infinite;
+}
+
+.city-search-modern::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+}
+
+@keyframes gentle-glow {
+  0% {
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15), 0 0 0 5px rgba(255, 255, 255, 0.1);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  50% {
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2), 0 0 0 5px rgba(255, 255, 255, 0.2);
   }
+  100% {
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15), 0 0 0 5px rgba(255, 255, 255, 0.1);
+  }
+}
+
+.search-wrapper-modern {
+  position: relative;
+  margin-bottom: 1.5rem;
+  z-index: 2000;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.suggestions-list {
+  order: -1;
+  position: static;
+  margin-bottom: 0.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(30, 136, 229, 0.08);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1;
+  animation: fadeInSuggestions 0.3s ease-out forwards;
+  color: #222; /* Texte suggestions foncé */
 }
 
 .suggestions-list li {
+  color: #222;
   padding: 0.85rem 1.2rem;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -936,8 +1197,6 @@ h1::after {
   appearance: none;
   padding-right: 2.5rem;
   transform: translateY(0);
-  position: relative;
-  z-index: 1;
 }
 
 .select-city::before {
@@ -995,6 +1254,27 @@ h1::after {
   display: flex;
 }
 
+/* Modern View Filters - Inspired by Codeur.com */
+.view-filters-modern {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1.5rem auto;
+  animation: fadeInUp 0.8s ease-out 0.5s forwards;
+  opacity: 0;
+  position: relative;
+  z-index: 1500;
+  justify-content: center;
+  max-width: 800px;
+  /* Caché par défaut, sera affiché quand une ville est sélectionnée */
+  display: none;
+}
+
+/* Classe pour afficher les boutons de vue quand une ville est sélectionnée */
+.city-selected .view-filters-modern {
+  display: flex;
+}
+
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -1022,6 +1302,27 @@ h1::after {
   box-shadow: 0 2px 8px -2px rgba(30, 136, 229, 0.15);
   position: relative;
   overflow: hidden;
+}
+
+/* Modern View Button - Inspired by Codeur.com */
+.view-btn-modern {
+  padding: 0.85rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  flex: 0 1 auto;
+  min-width: 120px;
+  text-align: center;
+  box-shadow: 0 4px 15px -2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 /* Styles spécifiques pour chaque type de vue */
@@ -1096,6 +1397,72 @@ h1::after {
   animation: pulse 2s infinite;
 }
 
+/* Modern View Button Hover & Active States */
+.view-btn-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.view-btn-modern:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.view-btn-modern:hover::before {
+  opacity: 1;
+}
+
+.view-btn-modern::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.7);
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+  opacity: 0;
+}
+
+.view-btn-modern:hover::after {
+  width: 50%;
+  opacity: 1;
+}
+
+.view-btn-modern.active {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px -3px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  animation: gentle-pulse-modern 2s infinite;
+}
+
+@keyframes gentle-pulse-modern {
+  0% {
+    box-shadow: 0 6px 15px -3px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 20px -3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 6px 15px -3px rgba(0, 0, 0, 0.2);
+  }
+}
+
 /* Styles spécifiques pour chaque type de vue quand ils sont actifs */
 .view-btn[data-view="general"].active {
   border-bottom: 2px solid #1e88e5;
@@ -1111,6 +1478,30 @@ h1::after {
 
 .view-btn[data-view="next-month"].active {
   border-bottom: 2px solid #1e88e5;
+}
+
+.view-btn-modern[data-view="general"].active {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.view-btn-modern[data-view="14days"].active {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.view-btn-modern[data-view="current-month"].active {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.view-btn-modern[data-view="next-month"].active {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.view-btn-modern[data-view="today"].active {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.view-btn-modern[data-view="tomorrow"].active {
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .view-btn[data-view="today"].active {
@@ -1700,6 +2091,7 @@ footer {
 @media (max-width: 480px) {
   body {
     padding: 1rem;
+    padding-top: calc(var(--header-height) + 3.5rem);
   }
   
   header {

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -32,19 +33,28 @@
         </ul>
       </nav>
     </div>
-  </header>
+  </header> 
+
+
 
   <div class="container">
-    <div class="hero-section">
-      <div class="hero-content">
-        <h2 class="hero-title">Prévisions Météo au Maroc</h2>
-        <p class="hero-subtitle">Découvrez les conditions météorologiques en temps réel pour toutes les villes du Maroc</p>
+    <div class="hero-section hero-modern">
+      <div class="floating-circles">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
       </div>
       
-      <div class="controls">
-        <div class="city-selector-container">
+      <div class="hero-content hero-content-modern">
+        <h2 class="hero-title-enhanced">Prévisions <span class="highlight">Météo</span> au Maroc</h2>
+        <p class="hero-subtitle-enhanced">Découvrez les conditions météorologiques en temps réel pour toutes les villes du Maroc</p>
+      </div>
+      
+      <div class="controls controls-modern">
+        <div class="search-wrapper-modern">
           <div class="city-selector">
-            <input type="text" id="citySearch" class="city-search" placeholder="Rechercher une ville...">
+            <input type="text" id="citySearch" class="city-search city-search-modern" placeholder="Rechercher une ville...">
             <ul class="suggestions-list hidden" id="suggestionsList"></ul>
             <select id="citySelect" class="select-city hidden">
               <option value="">Sélectionner une ville...</option>
@@ -52,13 +62,13 @@
           </div>
         </div>
         
-        <div class="view-filters">
-          <button class="view-btn active" data-view="general">Aperçu Général</button>
-          <button class="view-btn" data-view="14days">14 Jours</button>
-          <button class="view-btn" data-view="current-month">Mois Actuel</button>
-          <button class="view-btn" data-view="next-month">Mois Suivant</button>
-          <button class="view-btn" data-view="today">Aujourd'hui</button>
-          <button class="view-btn" data-view="tomorrow">Demain</button>
+        <div class="view-filters view-filters-modern">
+          <button class="view-btn view-btn-modern active" data-view="general">Aperçu Général</button>
+          <button class="view-btn view-btn-modern" data-view="14days">14 Jours</button>
+          <button class="view-btn view-btn-modern" data-view="current-month">Mois Actuel</button>
+          <button class="view-btn view-btn-modern" data-view="next-month">Mois Suivant</button>
+          <button class="view-btn view-btn-modern" data-view="today">Aujourd'hui</button>
+          <button class="view-btn view-btn-modern" data-view="tomorrow">Demain</button>
         </div>
       </div>
     </div>
