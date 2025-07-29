@@ -21,12 +21,23 @@
 
         <!-- Section 2: Villes principales -->
         <div class="footer-section">
-          <h3>Villes Principales</h3>
+          <h3>À lire sur notre blog</h3>
           <ul class="footer-cities">
-            <li><a href="#" class="city-link" data-city="Casablanca">Casablanca</a></li>
-            <li><a href="#" class="city-link" data-city="Rabat">Rabat</a></li>
-            <li><a href="#" class="city-link" data-city="Marrakech">Marrakech</a></li>
-            <li><a href="#" class="city-link" data-city="Agadir">Agadir</a></li>
+            <li>
+              <a href="articles/changements-climatiques-maroc.php" class="city-link">
+                Changements climatiques au Maroc : enjeux et perspectives
+              </a>
+            </li>
+            <li>
+              <a href="articles/astuces-meteo-voyage.php" class="city-link">
+                7 astuces météo pour bien préparer votre voyage
+              </a>
+            </li>
+            <li>
+              <a href="articles/phenomenes-extremes.php" class="city-link">
+                Phénomènes météorologiques extrêmes : comment s’en protéger ?
+              </a>
+            </li>
           </ul>
         </div>
 

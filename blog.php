@@ -408,4 +408,5 @@ function formatDate($date) {
         <?php endif; ?>
     </div>
 </body>
+<?php include 'footer.php'; ?>
 </html>
