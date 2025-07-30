@@ -158,5 +158,7 @@
             </div>
         </aside>
     </div>
+        <?php include 'footer.php'; ?>
+
 </body>
 </html>

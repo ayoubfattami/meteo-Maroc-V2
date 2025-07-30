@@ -131,5 +131,9 @@
             </div>
         </aside>
     </div>
+        
+
 </body>
+
 </html>
+<?php include 'footer.php'; ?>
