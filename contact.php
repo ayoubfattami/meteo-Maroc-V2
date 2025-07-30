@@ -1,6 +1,6 @@
 <?php
 // Configuration
-$to_email = "votre-email@example.com"; // Remplacez par votre adresse email
+$to_email = "fattamiayoub@gmail.com"; // Remplacez par votre adresse email
 $success_message = "";
 $error_message = "";
 
@@ -23,13 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Une adresse email valide est requise.";
     }
     
-    if (empty($objet)) {
-        $errors[] = "L'objet du message est requis.";
-    }
-    
-    if (empty($message)) {
-        $errors[] = "Le message est requis.";
-    }
+    // Supprimer la validation pour objet et message
     
     // Si pas d'erreurs, envoyer l'email
     if (empty($errors)) {
@@ -277,6 +271,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: linear-gradient(135deg, #e74c3c, #c0392b);
             border-radius: 2px;
         }
+
+        .meteo-contact-form-group label:not(.meteo-contact-required)::after {
+            content: '(optionnel)';
+            font-size: 0.8rem;
+            color: #718093;
+            margin-left: 5px;
+            font-weight: normal;
+        }
+
+        /* Supprimer les styles spécifiques aux champs non-requis */
+        .meteo-contact-form-control:not([required]) {
+            border-color: #e9ecef;  /* Même couleur que les champs requis */
+            background-color: #f8f9fa; /* Même couleur que les champs requis */
+        }
+
+        .meteo-contact-form-control:not([required]):focus {
+            border-color: #74b9ff; /* Même couleur que les champs requis au focus */
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(116, 185, 255, 0.1);
+        }
+
+        /* Ajouter validation visuelle pour tous les champs */
+        .meteo-contact-form-control:focus {
+            outline: none;
+            border-color: #74b9ff;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(116, 185, 255, 0.1);
+        }
+
+        .meteo-contact-form-control:not(:placeholder-shown) {
+            border-color: #00b894; /* Même couleur que les champs valides */
+        }
     </style>
 </head>
 
@@ -323,13 +349,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="meteo-contact-objet">Objet du message</label>
                     <input type="text" id="meteo-contact-objet" name="objet" class="meteo-contact-form-control" 
                            value="<?php echo isset($objet) ? htmlspecialchars($objet) : ''; ?>" 
-                           required placeholder="Sujet de votre message">
+                           placeholder="Sujet de votre message">
                 </div>
                 
                 <div class="meteo-contact-form-group">
                     <label for="meteo-contact-message">Message</label>
                     <textarea id="meteo-contact-message" name="message" class="meteo-contact-form-control" 
-                              required placeholder="Écrivez votre message ici..."><?php echo isset($message) ? htmlspecialchars($message) : ''; ?></textarea>
+                              placeholder="Écrivez votre message ici..."><?php echo isset($message) ? htmlspecialchars($message) : ''; ?></textarea>
                 </div>
                 
                 <button type="submit" class="meteo-contact-btn">
@@ -358,8 +384,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             });
             
             // Validation en temps réel
-            const requiredInputs = document.querySelectorAll('input[required], textarea[required]');
-            requiredInputs.forEach(input => {
+            const allInputs = document.querySelectorAll('.meteo-contact-form-control');
+            allInputs.forEach(input => {
                 input.addEventListener('input', function() {
                     if (this.value.trim() !== '') {
                         this.style.borderColor = '#00b894';
