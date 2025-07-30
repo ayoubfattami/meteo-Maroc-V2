@@ -99,40 +99,40 @@
             <h3 class="meteo-similar-title">Articles Similaires</h3>
             <div class="meteo-similar-grid">
                 <!-- Article 1 -->
-                <a href="meteo-casablanca-hiver.php" class="meteo-similar-link">
+                <a href="meteo-marrakech-aout.php" class="meteo-similar-link">
                     <article class="meteo-similar-item">
                         <div class="meteo-similar-content">
                             <h4 class="meteo-similar-item-title">
-                                Météo Casablanca en Hiver
+                                Météo Marrakech : à quoi s’attendre si vous partez en août 2025 ?
                             </h4>
-                            <p class="meteo-similar-summary">Découvrez les conditions météorologiques de Casablanca pendant la saison hivernale, avec des températures douces et des précipitations modérées.</p>
-                            <time class="meteo-similar-date" datetime="2024-07-10">10 juillet 2024</time>
+                            <p class="meteo-similar-summary">Découvrez les conditions météo à Marrakech en août 2025 : températures, climat, conseils pour profiter de votre séjour malgré la chaleur estivale dans la ville rouge.</p>
+                            <time class="meteo-similar-date" datetime="2025-07-30">30 juillet 2025</time>
                         </div>
                     </article>
                 </a>
 
                 <!-- Article 2 -->
-                <a href="meteo-fes-printemps.php" class="meteo-similar-link">
+                <a href="quand-partir-au-maroc.php" class="meteo-similar-link">
                     <article class="meteo-similar-item">
                         <div class="meteo-similar-content">
                             <h4 class="meteo-similar-item-title">
-                                Météo Fès au Printemps
+                                Quand partir au Maroc ? Mois par mois, la météo ville par ville
                             </h4>
-                            <p class="meteo-similar-summary">Le printemps à Fès offre des conditions idéales avec des températures agréables et une nature en fleurs dans toute la région.</p>
-                            <time class="meteo-similar-date" datetime="2024-07-08">8 juillet 2024</time>
+                            <p class="meteo-similar-summary">Explorez la météo au Maroc tout au long de l’année, région par région. Un guide pratique pour choisir la meilleure période selon vos destinations et le climat local.</p>
+                            <time class="meteo-similar-date" datetime="2025-07-30">30 juillet 2025</time>
                         </div>
                     </article>
                 </a>
 
                 <!-- Article 3 -->
-                <a href="meteo-agadir-automne.php" class="meteo-similar-link">
+                <a href="tourisme-meteo-maroc.php" class="meteo-similar-link">
                     <article class="meteo-similar-item">
                         <div class="meteo-similar-content">
                             <h4 class="meteo-similar-item-title">
-                                Météo Agadir en Automne
+                                Tourisme et météo : comment le climat influence les voyages au Maroc ?
                             </h4>
-                            <p class="meteo-similar-summary">L'automne à Agadir présente un climat doux et ensoleillé, parfait pour profiter des plages et des activités en plein air.</p>
-                            <time class="meteo-similar-date" datetime="2024-07-05">5 juillet 2024</time>
+                            <p class="meteo-similar-summary">Le climat marocain influence les choix de voyage, les saisons touristiques et les activités. Découvrez comment adapter votre séjour selon la météo et les régions.</p>
+                            <time class="meteo-similar-date" datetime="2025-07-29">29 juillet 2025</time>
                         </div>
                     </article>
                 </a>
