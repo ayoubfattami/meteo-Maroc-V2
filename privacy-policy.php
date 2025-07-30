@@ -15,7 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #2c3e50;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #e3f2fd 0%, #b3e5fc 100%);
             min-height: 100vh;
         }
 
@@ -244,7 +244,7 @@
                     pour améliorer votre expérience de navigation et personnaliser le contenu météorologique :
                 </p>
                 <ul class="meteo-privacy-list">
-                    <li><strong>Cookies fonctionnels :</strong> Mémorisation de vos préférences (ville, unités)</li>
+                    <!-- <li><strong>Cookies fonctionnels :</strong> Mémorisation de vos préférences (ville, unités)</li> -->
                     <li><strong>Cookies analytiques :</strong> Analyse du trafic pour améliorer nos services</li>
                     <li><strong>Cookies de performance :</strong> Optimisation de la vitesse de chargement</li>
                 </ul>
@@ -264,8 +264,8 @@
                     météorologiques et respecter nos <span class="meteo-privacy-highlight">obligations légales</span> :
                 </p>
                 <ul class="meteo-privacy-list">
-                    <li><strong>Données de localisation :</strong> Conservées pendant votre session de navigation</li>
-                    <li><strong>Préférences utilisateur :</strong> Jusqu'à 12 mois ou suppression manuelle</li>
+                    <!-- <li><strong>Données de localisation :</strong> Conservées pendant votre session de navigation</li> -->
+                    <!-- <li><strong>Préférences utilisateur :</strong> Jusqu'à 12 mois ou suppression manuelle</li> -->
                     <li><strong>Données analytiques :</strong> Anonymisées après 24 mois</li>
                     <li><strong>Logs techniques :</strong> Supprimés automatiquement après 6 mois</li>
                 </ul>
@@ -329,7 +329,7 @@
                     de vos données, notre <span class="meteo-privacy-highlight">équipe</span> est à votre disposition :
                 </p>
                 <div class="meteo-privacy-contact-info">
-                    <p><strong>Email :</strong> privacy@meteomaroc.ma</p>
+                    <p><strong>Email :</strong> privacy@meteomaroc.fr</p>
                     <p><strong>Téléphone :</strong> +212 5XX-XXX-XXX</p>
                     <p><strong>Adresse :</strong> Marrakech, Maroc</p>
                     <p><strong>Horaires :</strong> Lundi - Vendredi, 9h00 - 18h00</p>
@@ -342,5 +342,7 @@
         </main>
 
     </div>
+        <?php include 'footer.php'; ?>
+
 </body>
 </html>

@@ -1,30 +1,23 @@
 [
   {
-    "title": "Prévisions météo pour Casablanca : Temps ensoleillé cette semaine",
-    "summary": "Découvrez les prévisions météorologiques détaillées pour Casablanca avec des températures agréables et un ciel dégagé prévu pour les prochains jours.",
-    "date": "2024-01-15",
-    "image": "assets/images/casablanca.jpg",
-    "slug": "meteo-marrakech-ete"
+    "title": "Météo Marrakech : à quoi s’attendre si vous partez en août 2025 ?",
+    "summary": "Découvrez les conditions météo à Marrakech en août 2025 : températures, climat, conseils pour profiter de votre séjour malgré la chaleur estivale dans la ville rouge.",
+    "date": "2025-07-30",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "meteo-marrakech-aout"
   },
   {
-    "title": "Marrakech : Alerte canicule en cours, températures record",
-    "summary": "Les températures à Marrakech atteignent des niveaux exceptionnels. Conseils et recommandations pour faire face à cette vague de chaleur intense.",
-    "date": "2024-01-14",
+    "title": "Quand partir au Maroc ? Mois par mois, la météo ville par ville",
+    "summary": "Explorez la météo au Maroc tout au long de l’année, région par région. Un guide pratique pour choisir la meilleure période selon vos destinations et le climat local.",
+    "date": "2025-07-30",
     "image": "assets/images/marrakech.jpg",
-    "slug": "alerte-canicule-marrakech-janvier-2024"
+    "slug": "quand-partir-au-maroc"
   },
   {
-    "title": "Rabat : Pluies attendues ce week-end, préparez-vous",
-    "summary": "La capitale se prépare à recevoir des précipitations importantes. Retrouvez tous les détails des prévisions météo pour Rabat.",
-    "date": "2024-01-13",
+    "title": "Tourisme et météo : comment le climat influence les voyages au Maroc ?",
+    "summary": "Le climat marocain influence les choix de voyage, les saisons touristiques et les activités. Découvrez comment adapter votre séjour selon la météo et les régions.",
+    "date": "2025-07-29",
     "image": "assets/images/marrakech.jpg",
-    "slug": "pluies-rabat-weekend-janvier-2024"
-  },
-  {
-    "title": "Rabat : Pluies attendues ce week-end, préparez-vous",
-    "summary": "La capitale se prépare à recevoir des précipitations importantes. Retrouvez tous les détails des prévisions météo pour Rabat.",
-    "date": "2024-01-13",
-    "image": "assets/images/marrakech.jpg",
-    "slug": "pluies-rabat-weekend-janvier-2024"
+    "slug": "tourisme-meteo-maroc"
   }
 ]

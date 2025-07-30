@@ -24,18 +24,18 @@
           <h3>À lire sur notre blog</h3>
           <ul class="footer-cities">
             <li>
-              <a href="articles/changements-climatiques-maroc.php" class="city-link">
-                Changements climatiques au Maroc : enjeux et perspectives
+              <a href="articles/meteo-marrakech-aout.php" class="city-link">
+                Météo Marrakech : à quoi s’attendre si vous partez en août 2025 ?
               </a>
             </li>
             <li>
-              <a href="articles/astuces-meteo-voyage.php" class="city-link">
-                7 astuces météo pour bien préparer votre voyage
+              <a href="articles/quand-partir-au-maroc.php" class="city-link">
+                Quand partir au Maroc ? Mois par mois, la météo ville par ville
               </a>
             </li>
             <li>
-              <a href="articles/phenomenes-extremes.php" class="city-link">
-                Phénomènes météorologiques extrêmes : comment s’en protéger ?
+              <a href="articles/tourisme-meteo-maroc.php" class="city-link">
+                Tourisme et météo : comment le climat influence les voyages au Maroc ?
               </a>
             </li>
           </ul>
@@ -45,9 +45,9 @@
         <div class="footer-section">
           <h3>Liens Utiles</h3>
           <ul class="footer-links">
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/terms">Conditions d'utilisation</a></li>
-            <li><a href="/privacy">Politique de confidentialité</a></li>
+             <li><a href="contact.php">Contact</a></li>
+            <li><a href="blog.php">Blog</a></li>
+            <li><a href="privacy-policy.php">Politique de confidentialité</a></li>
           </ul>
         </div>
       </div>
@@ -59,7 +59,7 @@
 
     <script src="script.js"></script>
 
-    <script>
+    <!-- <script>
         // Fonctionnalité complète des liens de villes pour toutes les pages
         document.addEventListener('DOMContentLoaded', function() {
             // Mise à jour de l'année automatiquement
@@ -188,7 +188,7 @@
                 });
             });
         });
-    </script>
+    </script> -->
 
 </body>
 </html>
