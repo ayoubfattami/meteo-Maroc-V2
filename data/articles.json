@@ -1,23 +1,58 @@
 [
   {
+    "title": "Quelle est la meilleure période pour visiter le Maroc selon la météo ?",
+    "summary": "Guide saisonnier complet par région avec températures moyennes et recommandations d'activités. Trouvez votre période idéale selon vos préférences climatiques.",
+    "date": "2025-07-30",
+    "image": "assets/images/aout-maroc.webp",
+    "slug": "meilleure-période-pour-visiter-le-maroc"
+  },
+  {
+    "title": "Voyage en famille au Maroc : quelles destinations selon la météo ?",
+    "summary": "Destinations adaptées aux enfants par saison, précautions météorologiques et activités familiales. De la côte atlantique au désert d'Agafay en toute sécurité.",
+    "date": "2025-07-30",
+    "image": "assets/images/voyage-au-maroc.webp",
+    "slug": "voyage-en-famille-au-maroc"
+  },
+  {
+    "title": "Où partir au Maroc en été 2025 ? Les meilleures destinations selon la météo",
+    "summary": "Côtes atlantiques tempérées, hauteurs fraîches de l'Atlas et stratégies pour les villes impériales. Guide avec températures moyennes et conseils pratiques pour un été réussi au Maroc.",
+    "date": "2025-07-30",
+    "image": "assets/images/agadir.jpg",
+    "slug": "ou-partir-au-maroc-ete-2025"
+  },
+  {
     "title": "Météo Marrakech : à quoi s’attendre si vous partez en août 2025 ?",
     "summary": "Découvrez les conditions météo à Marrakech en août 2025 : températures, climat, conseils pour profiter de votre séjour malgré la chaleur estivale dans la ville rouge.",
     "date": "2025-07-30",
-    "image": "assets/images/marrakech.jpg",
+    "image": "assets/images/climat-marrakech.jpg",
     "slug": "meteo-marrakech-aout"
   },
   {
     "title": "Quand partir au Maroc ? Mois par mois, la météo ville par ville",
     "summary": "Explorez la météo au Maroc tout au long de l’année, région par région. Un guide pratique pour choisir la meilleure période selon vos destinations et le climat local.",
     "date": "2025-07-30",
-    "image": "assets/images/marrakech.jpg",
+    "image": "assets/images/mmaroc.webp",
     "slug": "quand-partir-au-maroc"
   },
   {
     "title": "Tourisme et météo : comment le climat influence les voyages au Maroc ?",
     "summary": "Le climat marocain influence les choix de voyage, les saisons touristiques et les activités. Découvrez comment adapter votre séjour selon la météo et les régions.",
     "date": "2025-07-29",
-    "image": "assets/images/marrakech.jpg",
+    "image": "assets/images/tangier.jpg",
     "slug": "tourisme-meteo-maroc"
+  },
+  {
+    "title": "Été 2025 au Maroc : comment voyager malgré la chaleur extrême ?",
+    "summary": "Techniques d'adaptation aux températures de 45°C+, planning optimisé et équipements indispensables. Transformez les contraintes climatiques en opportunités de découverte.",
+    "date": "2025-07-29",
+    "image": "assets/images/marrakech.jpg",
+    "slug": "ete-2025-au-maroc"
+  },
+  {
+    "title": "Top 5 des villes marocaines où échapper à la canicule cet été",
+    "summary": "Classement des refuges climatiques : Essaouira, Chefchaouen... Températures comparatives et conseils pour échapper intelligemment à la fournaise estivale.",
+    "date": "2025-07-29",
+    "image": "assets/images/musee-Yves-Saint-Laurent-Marrakech-.jpeg",
+    "slug": "top-5-ville-marocaines-echaper-canicule"
   }
 ]

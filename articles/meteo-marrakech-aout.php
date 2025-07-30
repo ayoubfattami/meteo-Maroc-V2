@@ -22,7 +22,7 @@
                 </div>
                 <h1 class="meteo-article-title">Météo Marrakech : à quoi s’attendre si vous partez en août 2025 ?</h1>
                 <div class="meteo-article-image-container">
-                    <img src="../assets/images/marrakech.jpg" alt="Vue panoramique de Marrakech en été avec ciel bleu" class="meteo-article-featured-image">
+                    <img src="../assets/images/climat-marrakech.jpg" alt="Vue panoramique de Marrakech en été avec ciel bleu" class="meteo-article-featured-image">
                 </div>
             </header>
 

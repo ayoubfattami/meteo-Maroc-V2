@@ -22,7 +22,7 @@
                 </div>
                 <h1 class="meteo-article-title">Tourisme et météo : comment le climat influence les voyages au Maroc ?</h1>
                 <div class="meteo-article-image-container">
-                    <img src="../assets/images/marrakech.jpg" alt="Vue panoramique de Marrakech en été avec ciel bleu" class="meteo-article-featured-image">
+                    <img src="../assets/images/tangier.jpg" alt="Vue panoramique de Marrakech en été avec ciel bleu" class="meteo-article-featured-image">
                 </div>
             </header>
 
