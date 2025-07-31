@@ -243,33 +243,13 @@
                 </p>
                 <ul class="meteo-privacy-list">
                     <!-- <li><strong>Cookies fonctionnels :</strong> Mémorisation de vos préférences (ville, unités)</li> -->
-                    <li><strong> Aucun cookie</strong> n'est utilisé sur notre site</li>
+                    <li>Navigation 100% privée : Aucun fichier n'est stocké sur votre appareil</li>
                     <li> <strong>Aucun suivi</strong> de votre navigation</li>
                     <li> <strong>Aucune analyse</strong> de données utilisateurs</li>
+                    <li>Une expérience légère et respectueuse de votre vie privée</li>
                 </ul>
                 <p class="meteo-privacy-section-text">
                     Aucun cookie de suivi ou analytique n'est utilisé.
-                </p>
-            </section>
-
-            <section class="meteo-privacy-section">
-                <h2 class="meteo-privacy-section-title">
-                    <span class="meteo-privacy-section-icon">⏰</span>
-                    Durée de Conservation
-                </h2>
-                <p class="meteo-privacy-section-text">
-                    Nous conservons vos données uniquement pendant la durée nécessaire pour fournir nos services 
-                    météorologiques et respecter nos <span class="meteo-privacy-highlight">obligations légales</span> :
-                </p>
-                <ul class="meteo-privacy-list">
-                    <!-- <li><strong>Données de localisation :</strong> Conservées pendant votre session de navigation</li> -->
-                    <!-- <li><strong>Préférences utilisateur :</strong> Jusqu'à 12 mois ou suppression manuelle</li> -->
-                    <li><strong>Données analytiques :</strong> Anonymisées après 24 mois</li>
-                    <li><strong>Logs techniques :</strong> Supprimés automatiquement après 6 mois</li>
-                </ul>
-                <p class="meteo-privacy-section-text">
-                    Toutes les données sont automatiquement supprimées à l'expiration de ces périodes, 
-                    conformément aux meilleures pratiques de protection des données.
                 </p>
             </section>
 

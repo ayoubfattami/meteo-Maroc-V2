@@ -308,8 +308,8 @@
 }
 
 .explore-logo-img {
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   filter: drop-shadow(0 4px 12px rgba(30, 136, 229, 0.2));
   transition: transform 0.3s ease;
@@ -394,8 +394,8 @@
   }
   
   .explore-logo-img {
-    width: 60px;
-    height: 60px;
+    width: 110px;
+    height: 110px;
   }
   
   .explore-description p {
