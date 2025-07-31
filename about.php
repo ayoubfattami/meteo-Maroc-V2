@@ -417,8 +417,7 @@
                     Notre Équipe
                 </h2>
                 <p class="meteo-about-section-text">
-                    Météo Maroc est le fruit du travail d'une équipe passionnée de <span class="meteo-about-highlight">développeurs</span> 
-                    et de météorologues marocains. Nous combinons expertise technique et connaissance approfondie 
+                    Météo Maroc est le fruit du travail d'une équipe passionnée . Nous combinons expertise technique et connaissance approfondie 
                     du climat marocain pour créer une solution adaptée aux besoins locaux. Notre équipe 
                     s'engage à maintenir la qualité du service et à innover constamment pour améliorer 
                     l'expérience utilisateur.
@@ -445,8 +444,8 @@
                     Engagement Local
                 </h2>
                 <p class="meteo-about-section-text">
-                    En tant que service <span class="meteo-about-highlight">100% marocain</span>, nous comprenons 
-                    les particularités climatiques de notre pays. Des variations saisonnières du littoral 
+                    Nous comprenons 
+                    les particularités climatiques du Maroc. Des variations saisonnières du littoral 
                     aux conditions extrêmes du désert, nous adaptons nos prévisions aux réalités locales. 
                     Notre engagement est de servir la communauté marocaine avec des informations météo 
                     pertinentes et utiles pour la vie quotidienne, l'agriculture, le tourisme et tous 

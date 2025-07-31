@@ -101,9 +101,15 @@
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .feature-card {
@@ -206,10 +212,7 @@
     text-align: left;
   }
   
-  .features-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+
   
   .feature-card {
     padding: 1.2rem;
@@ -233,6 +236,177 @@
   
   .cta-text {
     font-size: 0.95rem;
+  }
+}
+
+/* --- Explore Section --- */
+.mm-explore-section {
+  background: var(--card-gradient);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem 2rem 2rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  animation: fadeInUp 0.7s cubic-bezier(0.25,0.8,0.25,1);
+  position: relative;
+  overflow: hidden;
+}
+
+.mm-explore-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+  z-index: 1;
+}
+
+.mm-explore-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--primary-dark);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 2;
+}
+
+.mm-explore-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  border-radius: 3px;
+}
+
+.mm-explore-content {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.explore-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.explore-logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(30, 136, 229, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.explore-logo-img:hover {
+  transform: scale(1.1);
+}
+
+.explore-description {
+  margin: 0;
+}
+
+.explore-description p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 0;
+  font-weight: 500;
+}
+
+.explore-cta {
+  margin-top: 0.5rem;
+}
+
+.explore-btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(30,136,229,0.15);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  border: 2px solid transparent;
+}
+
+.explore-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.explore-btn:hover::before {
+  left: 100%;
+}
+
+.explore-btn:hover, .explore-btn:focus {
+  box-shadow: 0 8px 25px rgba(30,136,229,0.25);
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  transform: translateY(-4px) scale(1.05);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.explore-btn:active {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 15px rgba(30,136,229,0.2);
+}
+
+@media (max-width: 768px) {
+  .mm-explore-section {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+  
+  .mm-explore-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .explore-logo-img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .explore-description p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .explore-btn {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+    border-radius: 16px;
   }
 }
 

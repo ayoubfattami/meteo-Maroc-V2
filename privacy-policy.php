@@ -219,18 +219,16 @@
                     Collecte de Données
                 </h2>
                 <p class="meteo-privacy-section-text">
-                    Météo Maroc collecte uniquement les données nécessaires pour fournir un service météorologique 
-                    <span class="meteo-privacy-highlight">de qualité</span>. Nous collectons les informations suivantes :
+                    Chez Météo Maroc, nous ne collectons <span class="meteo-privacy-highlight">aucune donnée personnelle</span>. Notre service respecte votre vie privée :
+                    <!-- <span class="meteo-privacy-highlight">de qualité</span> -->
                 </p>
                 <ul class="meteo-privacy-list">
-                    <li>Localisation géographique (ville ou région) pour personnaliser les prévisions</li>
-                    <li>Données de navigation pour améliorer l'expérience utilisateur</li>
-                    <li>Informations techniques (type de navigateur, système d'exploitation)</li>
-                    <li>Préférences utilisateur (unités de mesure, langue)</li>
+                    <li><strong> Aucune localisation :</strong> Les prévisions par ville sont basées sur votre recherche manuelle, sans géolocalisation automatique.</li>
+                    <li><strong>Aucun suivi de navigation :</strong> Nous n'utilisons pas de cookies analytiques.</li>
+                    <li><strong>Transparence technique :</strong> Les données météo affichées proviennent exclusivement de sources publiques et d'API autorisées.</li>
                 </ul>
                 <p class="meteo-privacy-section-text">
-                    Nous ne collectons <span class="meteo-privacy-highlight">jamais</span> d'informations personnelles 
-                    identifiables sans votre consentement explicite.
+                    Un service météo utile, sans compromis sur votre confidentialité.
                 </p>
             </section>
 
@@ -240,17 +238,17 @@
                     Utilisation des Cookies
                 </h2>
                 <p class="meteo-privacy-section-text">
-                    Notre site utilise des <span class="meteo-privacy-highlight">cookies essentiels</span> 
-                    pour améliorer votre expérience de navigation et personnaliser le contenu météorologique :
+                    <!-- Notre site utilise des <span class="meteo-privacy-highlight">cookies essentiels</span>  -->
+                    Chez Météo Maroc, nous avons fait le choix technologique de ne pas utiliser de cookies , ni techniques, ni analytiques, ni de suivi.
                 </p>
                 <ul class="meteo-privacy-list">
                     <!-- <li><strong>Cookies fonctionnels :</strong> Mémorisation de vos préférences (ville, unités)</li> -->
-                    <li><strong>Cookies analytiques :</strong> Analyse du trafic pour améliorer nos services</li>
-                    <li><strong>Cookies de performance :</strong> Optimisation de la vitesse de chargement</li>
+                    <li><strong> Aucun cookie</strong> n'est utilisé sur notre site</li>
+                    <li> <strong>Aucun suivi</strong> de votre navigation</li>
+                    <li> <strong>Aucune analyse</strong> de données utilisateurs</li>
                 </ul>
                 <p class="meteo-privacy-section-text">
-                    Vous pouvez gérer vos préférences de cookies à tout moment via les paramètres de votre navigateur. 
-                    Notez que désactiver certains cookies peut affecter le fonctionnement optimal du site.
+                    Aucun cookie de suivi ou analytique n'est utilisé.
                 </p>
             </section>
 

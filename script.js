@@ -1,7 +1,8 @@
-// Gestion des sections d'introduction, FAQ et villes populaires
+// Gestion des sections d'introduction, FAQ, explore et villes populaires
 document.addEventListener('DOMContentLoaded', function () {
   const introSection = document.getElementById('site-intro-section');
   const faqSection = document.getElementById('faq-section');
+  const exploreSection = document.getElementById('explore-section');
   const popularSection = document.getElementById('popular-cities-section');
   const citySelect = document.getElementById('citySelect');
   const weatherGrid = document.getElementById('weather-grid');
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function hideInfoSections() {
     if (introSection) introSection.style.display = 'none';
     if (faqSection) faqSection.style.display = 'none';
+    if (exploreSection) exploreSection.style.display = 'none';
     if (popularSection) popularSection.style.display = 'none';
     // Ajouter la classe city-selected au body pour afficher les boutons de vue
     document.body.classList.add('city-selected');
@@ -21,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function showInfoSections() {
     if (introSection) introSection.style.display = '';
     if (faqSection) faqSection.style.display = '';
+    if (exploreSection) exploreSection.style.display = '';
     if (popularSection) popularSection.style.display = '';
     // Retirer la classe city-selected du body pour cacher les boutons de vue
     document.body.classList.remove('city-selected');
