@@ -1,8 +1,21 @@
 <?php
-// Configuration
-$to_email = "fattamiayoub@gmail.com"; // Remplacez par votre adresse email
+// Chargement de l'autoloader de Composer
+require 'vendor/autoload.php';
+
+// Import des classes PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+// Chargement de la configuration SMTP depuis le fichier externe
+$smtp_config = require __DIR__ . '/config/mail_config.php';
+
+// Variables pour les messages de succès/erreur
 $success_message = "";
 $error_message = "";
+
+// Récupération de l'email de destination depuis la configuration
+$to_email = $smtp_config['to_email'];
 
 // Traitement du formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,22 +40,77 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Si pas d'erreurs, envoyer l'email
     if (empty($errors)) {
-        $subject = "Contact Météo Maroc: " . $objet;
-        $body = "Nom: " . $nom . "\n";
-        $body .= "Email: " . $email . "\n";
-        $body .= "Objet: " . $objet . "\n\n";
-        $body .= "Message:\n" . $message;
+        // Création d'une nouvelle instance de PHPMailer
+        $mail = new PHPMailer(true);
         
-        $headers = "From: " . $email . "\r\n";
-        $headers .= "Reply-To: " . $email . "\r\n";
-        $headers .= "X-Mailer: PHP/" . phpversion();
-        
-        if (mail($to_email, $subject, $body, $headers)) {
-            $success_message = "Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.";
-            // Réinitialiser les variables pour vider le formulaire
-            $nom = $email = $objet = $message = "";
-        } else {
-            $error_message = "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.";
+        try {
+            // Mode debug (0 = désactivé, 1 = messages client, 2 = messages client/serveur)
+            $mail->SMTPDebug = $smtp_config['debug'] ?? 0;
+            
+            // Configuration du serveur SMTP
+            $mail->isSMTP();                                      // Utiliser SMTP
+            $mail->Host       = $smtp_config['host'];             // Serveur SMTP
+            $mail->SMTPAuth   = true;                             // Activer l'authentification SMTP
+            $mail->Username   = $smtp_config['username'];         // Nom d'utilisateur SMTP
+            $mail->Password   = $smtp_config['password'];         // Mot de passe SMTP
+            $mail->SMTPSecure = $smtp_config['encryption'];       // Activer le chiffrement TLS
+            $mail->Port       = $smtp_config['port'];             // Port TCP
+            $mail->CharSet    = 'UTF-8';                          // Encodage
+            
+            // Paramètres supplémentaires pour améliorer la compatibilité
+            $mail->SMTPOptions = [
+                'ssl' => [
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                ]
+            ];
+            
+            // Expéditeur et destinataires
+            $mail->setFrom($smtp_config['from_email'], $smtp_config['from_name']);
+            $mail->addAddress($to_email);                         // Destinataire
+            $mail->addReplyTo($email, $nom);                      // Répondre à
+            
+            // Contenu de l'email
+            $mail->isHTML(true);                                  // Format HTML
+            $mail->Subject = "Contact Météo Maroc: " . $objet;
+            
+            // Corps du message en HTML avec style intégré pour une meilleure compatibilité
+            $htmlBody = "<div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>";
+            $htmlBody .= "<h2 style='color: #00a085;'>Nouveau message de contact</h2>";
+            $htmlBody .= "<p><strong>Nom:</strong> " . htmlspecialchars($nom) . "</p>";
+            $htmlBody .= "<p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>";
+            $htmlBody .= "<p><strong>Objet:</strong> " . htmlspecialchars($objet) . "</p>";
+            $htmlBody .= "<div style='background-color: #f8f9fa; padding: 15px; border-left: 4px solid #00a085; margin-top: 15px;'>";
+            $htmlBody .= "<p><strong>Message:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>";
+            $htmlBody .= "</div>";
+            $htmlBody .= "<p style='color: #718093; font-size: 0.9em; margin-top: 20px;'>Ce message a été envoyé depuis le formulaire de contact de Météo Maroc.</p>";
+            $htmlBody .= "</div>";
+            
+            // Corps du message en texte brut (alternative)
+            $textBody = "Nouveau message de contact\n\n";
+            $textBody .= "Nom: " . $nom . "\n";
+            $textBody .= "Email: " . $email . "\n";
+            $textBody .= "Objet: " . $objet . "\n\n";
+            $textBody .= "Message:\n" . $message . "\n\n";
+            $textBody .= "Ce message a été envoyé depuis le formulaire de contact de Météo Maroc.";
+            
+            $mail->Body = $htmlBody;
+            $mail->AltBody = $textBody;
+            
+            // Envoi de l'email
+            if ($mail->send()) {
+                $success_message = "Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.";
+                // Réinitialiser les variables pour vider le formulaire
+                $nom = $email = $objet = $message = "";
+            } else {
+                throw new Exception($mail->ErrorInfo);
+            }
+        } catch (Exception $e) {
+            $error_message = "Une erreur s'est produite lors de l'envoi du message: " . $e->getMessage();
+            
+            // Log l'erreur pour le débogage (en environnement de développement)
+            error_log('Erreur PHPMailer: ' . $e->getMessage());
         }
     } else {
         $error_message = implode("<br>", $errors);
