@@ -2669,6 +2669,28 @@ footer {
   }
 }
 
+/* Responsive pour les températures */
+@media (max-width: 768px) {
+  .temp-min, .temp-max {
+    font-size: 1rem;
+    padding: 0.15rem 0.4rem;
+  }
+  
+  .temp {
+    font-size: 1.2rem !important;
+  }
+  
+  .temp::after {
+    font-size: 0.55rem;
+    right: -1rem;
+    top: -0.25rem;
+  }
+  
+  .temp-range-container {
+    gap: 0.4rem;
+  }
+}
+
 /* Responsive Footer */
 @media (max-width: 992px) {
   .footer-container {
@@ -3089,20 +3111,74 @@ footer {
 .temp-min, .temp-max {
   display: flex;
   align-items: center;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
 .temp-min {
-  color: #64b5f6;
+  color: #1976d2;
+  background: linear-gradient(135deg, rgba(25,118,210,0.1), rgba(25,118,210,0.05));
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(25,118,210,0.2);
 }
 
 .temp-max {
-  color: #ff7043;
+  color: #d32f2f;
+  background: linear-gradient(135deg, rgba(211,47,47,0.1), rgba(211,47,47,0.05));
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(211,47,47,0.2);
 }
 
 .temp-arrow {
-  color: #9e9e9e;
-  font-size: 1.2rem;
+  color: #757575;
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+/* Amélioration de la température moyenne */
+.temp {
+  font-size: 1.4rem !important;
+  font-weight: 500;
+  color: var(--primary-dark);
+  position: relative;
+  display: inline-block;
+}
+
+.temp::after {
+  content: 'moy';
+  position: absolute;
+  top: -0.3rem;
+  right: -1.2rem;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--text-light);
+  background: rgba(30,136,229,0.1);
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+/* Hover effects pour les températures */
+.weather-card:hover .temp-min {
+  background: linear-gradient(135deg, rgba(25,118,210,0.15), rgba(25,118,210,0.08));
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(25,118,210,0.2);
+}
+
+.weather-card:hover .temp-max {
+  background: linear-gradient(135deg, rgba(211,47,47,0.15), rgba(211,47,47,0.08));
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(211,47,47,0.2);
+}
+
+.weather-card:hover .temp::after {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 /* Styles pour les icônes SVG inline */

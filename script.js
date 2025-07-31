@@ -1,3 +1,69 @@
+// Fonction de traduction des conditions météo
+function translateWeatherCondition(condition) {
+  const translations = {
+    'Sunny': 'Ensoleillé',
+    'Clear ': 'Dégagé',
+    'Partly Cloudy ': 'Partiellement nuageux',
+    'Partly cloudy': 'Partiellement nuageux',
+    'Cloudy': 'Nuageux',
+    'Overcast': 'Couvert',
+    'Mist': 'Brume',
+    'Fog': 'Brouillard',
+    'Freezing fog': 'Brouillard givrant',
+    'Patchy rain possible': 'Pluie éparse possible',
+    'Patchy snow possible': 'Neige éparse possible',
+    'Patchy sleet possible': 'Grésil épars possible',
+    'Patchy freezing drizzle possible': 'Bruine verglaçante éparse possible',
+    'Thundery outbreaks possible': 'Orages possibles',
+    'Blowing snow': 'Poudrerie',
+    'Blizzard': 'Blizzard',
+    'Light drizzle': 'Bruine légère',
+    'Freezing drizzle': 'Bruine verglaçante',
+    'Heavy freezing drizzle': 'Bruine verglaçante forte',
+    'Light rain': 'Pluie légère',
+    'Moderate rain at times': 'Pluie modérée par moments',
+    'Moderate rain': 'Pluie modérée',
+    'Heavy rain at times': 'Pluie forte par moments',
+    'Heavy rain': 'Pluie forte',
+    'Light freezing rain': 'Pluie verglaçante légère',
+    'Moderate or heavy freezing rain': 'Pluie verglaçante modérée à forte',
+    'Light sleet': 'Grésil léger',
+    'Moderate or heavy sleet': 'Grésil modéré à fort',
+    'Light snow': 'Neige légère',
+    'Patchy moderate snow': 'Neige modérée éparse',
+    'Moderate snow': 'Neige modérée',
+    'Patchy heavy snow': 'Neige forte éparse',
+    'Heavy snow': 'Neige forte',
+    'Ice pellets': 'Granules de glace',
+    'Light rain shower': 'Averse légère',
+    'Moderate or heavy rain shower': 'Averse modérée à forte',
+    'Torrential rain shower': 'Averse torrentielle',
+    'Light sleet showers': 'Averses de grésil légères',
+    'Moderate or heavy sleet showers': 'Averses de grésil modérées à fortes',
+    'Light snow showers': 'Averses de neige légères',
+    'Moderate or heavy snow showers': 'Averses de neige modérées à fortes',
+    'Light showers of ice pellets': 'Averses légères de granules de glace',
+    'Moderate or heavy showers of ice pellets': 'Averses modérées à fortes de granules de glace',
+    'Patchy light drizzle': 'Bruine légère éparse',
+    'Patchy light rain': 'Pluie légère éparse',
+    'Patchy moderate rain': 'Pluie modérée éparse',
+    'Patchy heavy rain': 'Pluie forte éparse',
+    'Patchy light snow': 'Neige légère éparse',
+    'Thunderstorm': 'Orage',
+    'Patchy light rain with thunder': 'Pluie légère éparse avec tonnerre',
+    'Moderate or heavy rain with thunder': 'Pluie modérée à forte avec tonnerre',
+    'Patchy light snow with thunder': 'Neige légère éparse avec tonnerre',
+    'Moderate or heavy snow with thunder': 'Neige modérée à forte avec tonnerre',
+    'Rainy': 'Pluvieux',
+    'Light rain at times': 'Pluie légère par moments',
+    'Moderate rain showers': 'Averses modérées',
+    'Patchy rain nearby': 'Pluies éparses à proximité',
+    'Heavy rain showers': 'Averses fortes'
+  };
+  
+  return translations[condition] || condition;
+}
+
 // Gestion des sections d'introduction, FAQ, explore et villes populaires
 document.addEventListener('DOMContentLoaded', function () {
   const introSection = document.getElementById('site-intro-section');
@@ -548,7 +614,7 @@ function createCurrentWeatherBlock(data) {
         <span class="current-weather-time">${timeString}</span>
         <span class="current-weather-condition"><img class="weather-icon" src="https:${
           c.condition.icon
-        }" alt="${c.condition.text}"> ${c.condition.text}</span>
+        }" alt="${translateWeatherCondition(c.condition.text)}"> ${translateWeatherCondition(c.condition.text)}</span>
       </div>
       <div class="current-weather-grid">
         ${info
@@ -610,7 +676,7 @@ function create14DaysForecast(data) {
           <span class="temp-max">${day.day.maxtemp_c}°</span>
         </div>
         
-        <div class="condition">${day.day.condition.text}</div>
+        <div class="condition">${translateWeatherCondition(day.day.condition.text)}</div>
         
         <div class="rain-probability-bar">
           <div class="rain-probability-fill" style="width: ${rainProbabilityWidth}"></div>
@@ -706,7 +772,7 @@ function createMonthlyForecast(data, monthOffset) {
             <span class="temp-max">${day.day.maxtemp_c}°</span>
           </div>
           
-          <div class="condition">${day.day.condition.text}</div>
+          <div class="condition">${translateWeatherCondition(day.day.condition.text)}</div>
           
           <div class="rain-probability-bar">
             <div class="rain-probability-fill" style="width: ${rainProbabilityWidth}"></div>
@@ -796,10 +862,10 @@ function createDetailedDayForecast(data, dayOffset) {
                     )}°C</span></td>
                     <td class="today-weather-cell">
                       <img src="https:${hour.condition.icon}" alt="${
-                    hour.condition.text
+                    translateWeatherCondition(hour.condition.text)
                   }" class="today-weather-icon-small">
                       <span class="today-weather-desc">${
-                        hour.condition.text
+                        translateWeatherCondition(hour.condition.text)
                       }</span>
                     </td>
                     <td>${hour.humidity}%</td>
@@ -838,7 +904,7 @@ function createDetailedDayForecast(data, dayOffset) {
                   <img src="https:${hour.condition.icon}" alt="${
                   hour.condition.text
                 }" class="today-weather-icon-small">
-                  <div class="today-weather-desc">${hour.condition.text}</div>
+                  <div class="today-weather-desc">${translateWeatherCondition(hour.condition.text)}</div>
                   <div class="today-humidity-value">
                     <span class="today-label">Humidité:</span> ${hour.humidity}%
                   </div>
@@ -903,9 +969,9 @@ function createDetailedDayForecast(data, dayOffset) {
                   )}°C</span></td>
                   <td class="weather-cell">
                     <img src="https:${hour.condition.icon}" alt="${
-                  hour.condition.text
+                  translateWeatherCondition(hour.condition.text)
                 }" class="weather-icon-small">
-                    <span class="weather-desc">${hour.condition.text}</span>
+                    <span class="weather-desc">${translateWeatherCondition(hour.condition.text)}</span>
                   </td>
                   <td>${hour.humidity}%</td>
                   <td>${Math.round(hour.wind_kph)} km/h</td>
@@ -939,9 +1005,9 @@ function createDetailedDayForecast(data, dayOffset) {
                 </div>
                 <div class="temp-value">${Math.round(hour.temp_c)}°C</div>
                 <img src="https:${hour.condition.icon}" alt="${
-                hour.condition.text
+                translateWeatherCondition(hour.condition.text)
               }" class="weather-icon-small">
-                <div class="weather-desc">${hour.condition.text}</div>
+                <div class="weather-desc">${translateWeatherCondition(hour.condition.text)}</div>
                 <div class="humidity-value">
                   <span class="label">Humidité:</span> ${hour.humidity}%
                 </div>
