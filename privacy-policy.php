@@ -259,19 +259,16 @@
                     Droits des Utilisateurs
                 </h2>
                 <p class="meteo-privacy-section-text">
-                    Conformément à la réglementation en vigueur, vous disposez de plusieurs 
-                    <span class="meteo-privacy-highlight">droits fondamentaux</span> concernant vos données :
+                    Bien que Météo Maroc ne collecte aucune donnée personnelle, nous tenons à vous informer de vos droits généraux selon le RGPD :
                 </p>
+                <p class="meteo-privacy-section-text"><strong>Vos droits fondamentaux</strong></p>
                 <ul class="meteo-privacy-list">
-                    <li><strong>Droit d'accès :</strong> Consulter les données que nous détenons sur vous</li>
-                    <li><strong>Droit de rectification :</strong> Corriger ou mettre à jour vos informations</li>
-                    <li><strong>Droit à l'effacement :</strong> Demander la suppression de vos données</li>
-                    <li><strong>Droit à la portabilité :</strong> Récupérer vos données dans un format structuré</li>
-                    <li><strong>Droit d'opposition :</strong> Vous opposer au traitement de vos données</li>
+                    <li><strong> Droit d'information :</strong> Savoir quelles données sont collectées (chez nous : aucune)</li>
+                    <li><strong> Droit d'accès :</strong> Demander confirmation qu'aucune donnée n'est stockée</li>
+                    <li><strong> Droit à l'oubli :</strong> Demander la suppression de potentielles traces techniques (cache navigateur)</li>
                 </ul>
                 <p class="meteo-privacy-section-text">
-                    Pour exercer ces droits, contactez-nous via les moyens indiqués dans la section contact. 
-                    Nous répondrons à votre demande dans les <span class="meteo-privacy-highlight">30 jours</span>.
+                    Votre tranquillité d'esprit est notre priorité.
                 </p>
             </section>
 
@@ -289,12 +286,8 @@
                     <li>Serveurs sécurisés avec accès restreint et surveillé</li>
                     <li>Sauvegardes régulières et plans de continuité</li>
                     <li>Audits de sécurité périodiques</li>
-                    <li>Formation continue de notre équipe sur la protection des données</li>
                 </ul>
-                <p class="meteo-privacy-section-text">
-                    En cas d'incident de sécurité, nous nous engageons à vous informer rapidement 
-                    et à prendre toutes les mesures correctives nécessaires.
-                </p>
+              
             </section>
 
             <section class="meteo-privacy-section">
@@ -303,8 +296,7 @@
                     Contact et Questions
                 </h2>
                 <p class="meteo-privacy-section-text">
-                    Pour toute question concernant cette politique de confidentialité ou l'utilisation 
-                    de vos données, notre <span class="meteo-privacy-highlight">équipe</span> est à votre disposition :
+                    Pour toute question concernant cette politique de confidentialité  notre <span class="meteo-privacy-highlight">équipe</span> est à votre disposition :
                 </p>
                 <div class="meteo-privacy-contact-info">
                     <p><strong>Email :</strong> privacy@meteomaroc.fr</p>

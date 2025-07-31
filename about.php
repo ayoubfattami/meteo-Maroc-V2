@@ -467,63 +467,82 @@
             <div class="meteo-about-faq-container">
                 <div class="meteo-about-faq-item">
                     <button class="meteo-about-faq-question" data-faq="faq1">
-                        <span class="meteo-about-faq-question-text">Quelles sont les périodes les plus chaudes au Maroc ?</span>
+                        <span class="meteo-about-faq-question-text">Quelle est la ville la plus ensoleillée du Maroc ?</span>
                         <span class="meteo-about-faq-toggle">+</span>
                     </button>
                     <div class="meteo-about-faq-answer" id="faq1">
                         <div class="meteo-about-faq-answer-content">
-                            <p>Les mois les plus chauds au Maroc sont généralement juillet et août, avec des températures pouvant dépasser 40°C dans les régions intérieures comme Marrakech et Fès. Les zones côtières bénéficient de températures plus modérées grâce à l'influence de l'océan Atlantique et de la mer Méditerranée.</p>
+                            <p>Comme sur la côte atlantique nord, les brouillards et les rosées sont fréquents et l'ensoleillement y est record,
+                            plus de 300 jours de Soleil par an à Agadir. Les températures sont fortement influencées par le front alizé qui souffle tout au long de l'année.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="meteo-about-faq-item">
                     <button class="meteo-about-faq-question" data-faq="faq2">
-                        <span class="meteo-about-faq-question-text">Comment varie le climat entre les différentes régions du Maroc ?</span>
+                        <span class="meteo-about-faq-question-text">Quelles sont les zones climatiques principales du Maroc ?</span>
                         <span class="meteo-about-faq-toggle">+</span>
                     </button>
                     <div class="meteo-about-faq-answer" id="faq2">
                         <div class="meteo-about-faq-answer-content">
-                            <p>Le Maroc présente une grande diversité climatique : climat méditerranéen au nord, océanique sur la côte atlantique, continental à l'intérieur, et désertique au sud. Les montagnes de l'Atlas créent des microclimats avec des températures plus fraîches et des précipitations plus importantes.</p>
-                        </div>
+                            <p>En tant que pays d'Afrique du Nord qui se situe entre deux zones climatiques, tempérée au Nord tropicale au Sud, 
+                                le Maroc se distingue par quatre types de climat : humide, subhumide, semi-aride et aride.</div>
                     </div>
                 </div>
 
                 <div class="meteo-about-faq-item">
                     <button class="meteo-about-faq-question" data-faq="faq3">
-                        <span class="meteo-about-faq-question-text">Quelle est la meilleure période pour visiter le Maroc ?</span>
+                        <span class="meteo-about-faq-question-text">Quelle est la ville la plus chaude du Maroc ?</span>
                         <span class="meteo-about-faq-toggle">+</span>
                     </button>
                     <div class="meteo-about-faq-answer" id="faq3">
                         <div class="meteo-about-faq-answer-content">
-                            <p>Les meilleures périodes sont le printemps (mars-mai) et l'automne (septembre-novembre), avec des températures agréables et peu de précipitations. L'hiver est idéal pour le sud du pays, tandis que l'été convient mieux aux régions côtières et montagneuses.</p>
+                            <p>La ville la plus chaude au Maroc varie selon la période de l'année, mais Marrakech est 
+                                souvent considérée comme la ville la plus chaude en été, tandis que certaines villes du sud, comme Zagora et Guelmim, peuvent aussi enregistrer des températures très élevées</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="meteo-about-faq-item">
                     <button class="meteo-about-faq-question" data-faq="faq4">
-                        <span class="meteo-about-faq-question-text">À quelle fréquence les prévisions météo sont-elles mises à jour ?</span>
+                        <span class="meteo-about-faq-question-text">Quel est le mois le plus pluvieux au Maroc ?</span>
                         <span class="meteo-about-faq-toggle">+</span>
                     </button>
                     <div class="meteo-about-faq-answer" id="faq4">
                         <div class="meteo-about-faq-answer-content">
-                            <p>Nos prévisions météorologiques sont mises à jour toutes les 3 heures pour garantir la précision maximale. Nous utilisons des données provenant de stations météorologiques locales et de modèles de prévision internationaux pour vous offrir les informations les plus fiables.</p>
+                            <p>On compte généralement 13 jours de précipitations chaque année au Maroc. 
+                                Juillet est le mois le moins pluvieux avec 1 mm et 0 jours de précipitations et Novembre le plus pluvieux avec jusqu'à 21 mm et 2 jours de précipitations.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="meteo-about-faq-item">
                     <button class="meteo-about-faq-question" data-faq="faq5">
-                        <span class="meteo-about-faq-question-text">Comment interpréter les indices UV et de qualité de l'air ?</span>
+                        <span class="meteo-about-faq-question-text">Quel est le climat général du Maroc ?</span>
                         <span class="meteo-about-faq-toggle">+</span>
                     </button>
                     <div class="meteo-about-faq-answer" id="faq5">
                         <div class="meteo-about-faq-answer-content">
-                            <p>L'indice UV varie de 1 (faible) à 11+ (extrême). Au Maroc, il peut atteindre des niveaux très élevés en été. L'indice de qualité de l'air va de 0 (excellent) à 500 (dangereux). Nous recommandons de limiter les activités extérieures quand l'indice UV dépasse 8 ou que la qualité de l'air est mauvaise.</p>
+                            <p> Le Maroc présente une diversité climatique, avec une influence méditerranéenne prédominante, mais aussi des zones arides et désertiques. 
+                                On peut distinguer plusieurs types de climats : méditerranéen, aride steppique et aride désertique.</p>
                         </div>
                     </div>
                 </div>
+
+
+                <div class="meteo-about-faq-item">
+                    <button class="meteo-about-faq-question" data-faq="faq6">
+                        <span class="meteo-about-faq-question-text">Quelle est la meilleure période pour visiter le Maroc ?</span>
+                        <span class="meteo-about-faq-toggle">+</span>
+                    </button>
+                    <div class="meteo-about-faq-answer" id="faq6">
+                        <div class="meteo-about-faq-answer-content">
+                            <p>Le printemps (avril-mai) et l'automne (octobre-novembre) sont considérés comme les meilleures périodes pour visiter le Maroc, 
+                                car les températures sont agréables pour explorer le pays</div>
+                    </div>
+                </div>
+
+
             </div>
         </section>
     </div>
