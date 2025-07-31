@@ -466,11 +466,11 @@
             
             <div class="meteo-about-faq-container">
                 <div class="meteo-about-faq-item">
-                    <button class="meteo-about-faq-question" data-faq="faq1">
+                    <button class="meteo-about-faq-question meteo-about-faq-active" data-faq="faq1">
                         <span class="meteo-about-faq-question-text">Quelle est la ville la plus ensoleillée du Maroc ?</span>
-                        <span class="meteo-about-faq-toggle">+</span>
+                        <span class="meteo-about-faq-toggle">−</span>
                     </button>
-                    <div class="meteo-about-faq-answer" id="faq1">
+                    <div class="meteo-about-faq-answer meteo-about-faq-open" id="faq1">
                         <div class="meteo-about-faq-answer-content">
                             <p>Comme sur la côte atlantique nord, les brouillards et les rosées sont fréquents et l'ensoleillement y est record,
                             plus de 300 jours de Soleil par an à Agadir. Les températures sont fortement influencées par le front alizé qui souffle tout au long de l'année.</p>
